@@ -14,8 +14,6 @@ game.state.add('play', {
 		//game loop
 		this.onUpdateTimer = this.game.time.events.loop(1000, this.onUpdate, this);
 		
-		
-
 		//load background
 		this.background = this.game.add.group();
 		//setup each of our background layers to take the full screen
@@ -64,94 +62,14 @@ game.state.add('play', {
 			this.dmgTextPool.add(dmgText);
 		}
 
-		//gold coin pool
-		var coins = this.coins = this.add.group();
-		coins.createMultiple(50, 'gold_coin', '', false);
-		coins.setAll('inputEnabled', true);
-		coins.setAll('goldValue', 1);
-		coins.callAll('events.onInputDown.add', 'events.onInputDown', this.onClickCoin, this);
+		//UI
+		buildMercenaryList(state);
 
 		this.playerGoldText = this.add.text(30,30, 'Gold: '+ this.player.gold, {
 			font:'24px Arial Black', fill:'#fff', strokeThickness:4
 		});
 
-		//UI
-		buildMercenaryList(state);
-
-
-
 	},
-	onClickMonster:function() {
-		var pos = this.input.position; // click position
-		//apply click damage to monster
-		this.currentMonster.damage(this.player.clickDmg);
-		//update the health text
-		this.monsterHealthText.text = this.currentMonster.alive ? this.currentMonster.health + ' HP':'DEAD';
-		
-		//floating damage text
-		var dmgText = this.dmgTextPool.getFirstExists(false);
-		if (dmgText) {
-			dmgText.text = this.player.clickDmg;
-			dmgText.reset(pos.x, pos.y);
-			dmgText.alpha = 1;
-			dmgText.tween.start();
-		} else console.log(this.dmgTextPool.children);
-	},
-	onKilledMonster:function(){
-		//reset the currentMonster before we move him
-		this.currentMonster.position.set(1000, this.game.world.centerY);
-		
-		//coin spawn
-		var coin = this.coins.getFirstExists(false);
-		coin.reset(this.game.world.centerX + this.game.rnd.integerInRange(-100,100), this.game.world.centerY + this.game.rnd.integerInRange(-20,20));
-		coin.goldValue = Math.round(this.level * 1.33);
-		this.game.time.events.add(Phaser.Timer.SECOND * 3, this.onClickCoin, this, coin);
-
-		++this.levelKills;
-		if (this.levelKills >= this.levelKillsRequired) {
-			++this.level;
-			this.levelKills = 0;
-		}
-
-		//now pick the next in the list and bring him up
-		this.currentMonster = this.monsters.getRandom();
-		this.currentMonster.maxHealth = Math.ceil(this.currentMonster.details.maxHealth + (this.level - 1) * 10.6);
-		this.currentMonster.revive(this.currentMonster.maxHealth);
-
-		//update UI
-		this.levelText.text = 'Level: ' + this.level;
-		this.levelKillsText.text = 'Kills: ' + this.levelKills + '/' + this.levelKillsRequired;
-	},
-	onRevivedMonster:function(){
-		this.currentMonster.position.set(this.game.world.centerX + 100, this.game.world.centerY);
-		//update the text display
-		this.monsterNameText.text = this.currentMonster.details.name;
-		this.monsterHealthText.text = this.currentMonster.health +' HP';
-		
-	},
-	onClickCoin:function(coin) {
-		if (!coin.alive)
-			return;
-		//give the player gold
-		this.player.gold += coin.goldValue;
-		//update UI
-		this.playerGoldText.text = 'Gold: '+this.player.gold;
-		coin.kill();
-	},
-	onCharacterClick: function(button, pointer) {
-		//make this a function so that it updates after we buy
-		function getAdjustedCost() {
-			return Math.ceil(button.details.cost + button.details.level * 1.46);
-		}
-		if(this.player.gold - getAdjustedCost() >= 0) {
-			this.player.gold -= getAdjustedCost();
-			this.playerGoldText.text = 'Gold: ' + this.player.gold;
-			++button.details.level;
-			button.text.text = button.details.name + ': ' + button.details.level;
-			button.costText.text = 'Cost: ' + getAdjustedCost();
-			button.details.purchaseHandler.call(this, button, this.player);
-		}
-	}, 
 	onUpdate:function(){
 		var mercs = this.myMercs;
 		var merc, enemy, dungeon;
@@ -209,7 +127,6 @@ game.state.add('play', {
 	},
 	award:function(lootTable) {
 		if (lootTable != undefined && lootTable.length != 0) {
-			console.log(lootTable);
 			var loot = lootTable[Math.floor(Math.random() * lootTable.length)];
 			this.player.addLoot(loot);
 		} else {

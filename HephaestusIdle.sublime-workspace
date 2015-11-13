@@ -1,0 +1,960 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pla",
+				"player"
+			],
+			[
+				"loot",
+				"lootTable"
+			],
+			[
+				"si",
+				"sizePerLevel"
+			],
+			[
+				"siz",
+				"sizePerLevel"
+			],
+			[
+				"le",
+				"level"
+			],
+			[
+				"ene",
+				"enemy"
+			],
+			[
+				"max",
+				"maxHealth"
+			],
+			[
+				"monst",
+				"monster"
+			],
+			[
+				"sel",
+				"selectedDungeon"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"bui",
+				"buildDungeon"
+			],
+			[
+				"play",
+				"playerStats"
+			],
+			[
+				"dun",
+				"dungeon"
+			],
+			[
+				"buildD",
+				"buildDungeonSelector"
+			],
+			[
+				"sendto",
+				"sendToButton"
+			],
+			[
+				"add",
+				"addChild"
+			],
+			[
+				"sendo",
+				"sendToGFX"
+			],
+			[
+				"sele",
+				"selector"
+			],
+			[
+				"set",
+				"setTo"
+			],
+			[
+				"buil",
+				"buildDungeonSelectorList"
+			],
+			[
+				"te",
+				"TextStyles"
+			],
+			[
+				"pool",
+				"mercDetailPool"
+			],
+			[
+				"de",
+				"detail"
+			],
+			[
+				"merce",
+				"mercenaryFlushStats"
+			],
+			[
+				"mercD",
+				"mercDetailPool"
+			],
+			[
+				"mer",
+				"mercenaryCalculate"
+			],
+			[
+				"hi",
+				"hireBTN"
+			],
+			[
+				"hir",
+				"hireBTN"
+			],
+			[
+				"st",
+				"Strenght"
+			],
+			[
+				"merc",
+				"mercDetailPanel"
+			],
+			[
+				"hireM",
+				"hireMercList"
+			],
+			[
+				"hire",
+				"hireMercButton"
+			],
+			[
+				"but",
+				"buttonGFX"
+			],
+			[
+				"button",
+				"button"
+			],
+			[
+				"ch",
+				"characters"
+			],
+			[
+				"leve",
+				"levelUI"
+			],
+			[
+				"lev",
+				"levelUI"
+			],
+			[
+				"dn",
+				"dungeon"
+			],
+			[
+				"show",
+				"showing"
+			],
+			[
+				"bu",
+				"button"
+			],
+			[
+				"cha",
+				"characters"
+			],
+			[
+				"ste",
+				"state"
+			],
+			[
+				"get",
+				"getBitmapData"
+			],
+			[
+				"equ",
+				"equipment"
+			],
+			[
+				"chara",
+				"character"
+			],
+			[
+				"cos",
+				"costText"
+			],
+			[
+				"skill",
+				"skillUI"
+			],
+			[
+				"char",
+				"characterData"
+			],
+			[
+				"on",
+				"onInputDown"
+			],
+			[
+				"skil",
+				"skillBTN"
+			],
+			[
+				"ski",
+				"skillUI"
+			],
+			[
+				"f",
+				"function"
+			],
+			[
+				"fil",
+				"fillRect"
+			],
+			[
+				"mons",
+				"monsterInfoUI"
+			],
+			[
+				"cent",
+				"centerX"
+			],
+			[
+				"upgra",
+				"upgradeButtonsData"
+			],
+			[
+				"cli",
+				"clickDmg"
+			],
+			[
+				"cen",
+				"centerY"
+			],
+			[
+				"coin",
+				"coins"
+			],
+			[
+				"dmgT",
+				"dmgTextPool"
+			],
+			[
+				"po",
+				"positionDown"
+			],
+			[
+				"dmgTex",
+				"dmgTextPool"
+			],
+			[
+				"onR",
+				"onRevivedMonster"
+			],
+			[
+				"c",
+				"currentMonster"
+			],
+			[
+				"onK",
+				"onKilledMonster"
+			],
+			[
+				"mon",
+				"monsters"
+			],
+			[
+				"mo",
+				"monster"
+			],
+			[
+				"fo",
+				"forest-middle"
+			],
+			[
+				"fore",
+				"forest-lights"
+			],
+			[
+				"forest",
+				"forest-back"
+			],
+			[
+				"ske",
+				"skeletonSprite"
+			],
+			[
+				"tru",
+				"trueDamage"
+			],
+			[
+				"Mer",
+				"MercenaryType"
+			],
+			[
+				"atta",
+				"attacker"
+			],
+			[
+				"t",
+				"target"
+			],
+			[
+				"att",
+				"attackAnimationCount"
+			],
+			[
+				"tu",
+				"turnCount"
+			],
+			[
+				"turn",
+				"turnTime"
+			],
+			[
+				"pro",
+				"proceed"
+			],
+			[
+				"display",
+				"displayTable"
+			],
+			[
+				"Ba",
+				"Battle"
+			],
+			[
+				"Poke",
+				"Pokedex"
+			],
+			[
+				"Pokedex",
+				"PokedexSearch"
+			],
+			[
+				"Pok",
+				"PokedexSearch"
+			],
+			[
+				"nu",
+				"null"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"opt",
+				"option	Tag"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"key",
+				"keysToSort"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"ba",
+				"BattlePokedexKeys"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"lock",
+				"lockYAxis"
+			],
+			[
+				"Res",
+				"resources"
+			],
+			[
+				"u",
+				"Upgrade"
+			],
+			[
+				"F",
+				"FiringCannon"
+			],
+			[
+				"Gam",
+				"GameMode"
+			],
+			[
+				"Gma",
+				"GameMode"
+			],
+			[
+				"SQL",
+				"SQLError"
+			],
+			[
+				"err",
+				"errorList"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"input",
+				"input_field"
+			],
+			[
+				"text",
+				"textarea	Tag"
+			],
+			[
+				"fetc",
+				"fetchingQuery"
+			],
+			[
+				"para",
+				"parameters"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"call_",
+				"call_user_func_array"
+			],
+			[
+				"exe",
+				"executeQuery"
+			],
+			[
+				"row",
+				"rowHTML"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"lin",
+				"link"
+			],
+			[
+				"link",
+				"linkData"
+			],
+			[
+				"border-",
+				"border-spacing"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/User/chrome.sublime-build",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"sideb",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: i",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/HephaestusIdle",
+		"/C/xampp/htdocs/HephaestusIdle/src"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/GITD47/Task List.md",
+		"/C/xampp/htdocs/GITD47/src/player.js",
+		"/C/xampp/htdocs/GITD47/src/mercenaryList.js",
+		"/C/xampp/htdocs/GITD47/src/map.js",
+		"/C/xampp/htdocs/GITD47/src/mercenary.js",
+		"/C/xampp/htdocs/GITD47/src/dungeon.js",
+		"/C/xampp/htdocs/GITD47/src/dungeonSelector.js",
+		"/C/xampp/htdocs/GITD47/lib/textStyles.js",
+		"/C/xampp/htdocs/GITD47/src/game.js",
+		"/C/xampp/htdocs/GITD47/index.html",
+		"/C/xampp/htdocs/HephaestusIdle/README.md",
+		"/C/xampp/htdocs/GITD47/src/generatedUI.js",
+		"/C/xampp/htdocs/GITD47/src/equipment.js",
+		"/C/xampp/htdocs/GITD47/src/monster.js",
+		"/C/xampp/htdocs/GITD47/src/images.js",
+		"/C/xampp/htdocs/GITD47/src/character.js",
+		"/C/Users/Jey/Desktop/BigInteger.cs",
+		"/C/xampp/htdocs/GITD47/src/slideMenu.js",
+		"/C/xampp/htdocs/GITD47/lib/3dSlideMenu.css",
+		"/C/Users/Jey/Dropbox/List of many names.md",
+		"/C/Users/Jey/Dropbox/ArchivedGames/Game Ideas.txt",
+		"/C/Users/Jey/Desktop/New Text Document.txt",
+		"/C/Users/Jey/Desktop/Reading.txt",
+		"/C/Users/Jey/Desktop/Angelica.md",
+		"/C/Users/Jey/Dropbox/Public/FeelingsEvilReiterate.txt",
+		"/C/xampp/htdocs/GITD47/src/monster",
+		"/C/Users/Jey/repos/gitSite/src/game.js",
+		"/C/Users/Jey/repos/gitSite/index.html",
+		"/C/xampp/htdocs/GITD47/lib/phaser.min.js",
+		"/C/Users/Jey/AppData/Local/Temp/Rar$DIa0.712/CREDITS.TXT",
+		"/C/Users/Jey/repos/Idle Mercenaries/index.html",
+		"/C/Users/Jey/repos/Idle Mercenaries/src/game.js",
+		"/C/Users/Jey/repos/Idle Mercenaries/credits.md",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/index.html",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/credits.md",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/Task List.txt",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/Idle Mercenaries.md",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/User/Side Bar Folders.sublime-settings",
+		"/C/Users/Jey/Dropbox/List of many names",
+		"/C/Users/Jey/Dropbox/Public/stuff to ask jessie",
+		"/C/Users/Jey/repos/LD48/Assets/BugList.txt",
+		"/C/Users/Jey/Desktop/craftEXP.md",
+		"/C/xampp/htdocs/myknoweilfolder/.htaccess",
+		"/C/Users/Jey/Desktop/moves.json",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/Character/Player/Mercenary.cs",
+		"/C/xampp/htdocs/index.php",
+		"/C/Users/Jey/Desktop/d3.txt",
+		"/C/xampp/htdocs/myknoweilfolder/wp-content/themes/twentyfourteen/functions.php",
+		"/C/xampp/htdocs/myknoweilfolder/wp-includes/functions.php",
+		"/C/xampp/htdocs/myknoweilfolder/wp-config.php",
+		"/C/xampp/htdocs/myknoweilfolder/wp-admin/setup-config.php",
+		"/C/xampp/htdocs/test.php",
+		"/C/xampp/htdocs/myknoweilfolder/index.php",
+		"/C/Users/Jey/Desktop/FalloutRPG/Fallout Rpg/Assets/Scripts/plugins/Extensions.cs",
+		"/C/Users/Jey/Desktop/FalloutRPG/Fallout Rpg/Assets/sshTest.txt",
+		"/C/Python/LICENSE.txt",
+		"/C/Python/README.txt",
+		"/C/Nexon/Atlantica/NeoUI/PData/PGameInfo/DLG_PGameInfo.ddf",
+		"/C/Users/Jey/AppData/Local/Temp/Rar$DIa0.816/AliceReadME.txt",
+		"/C/Users/Jey/repos/Pokemon Wars/Assets/Scripts/Battle/GridMap/AI/Unit.cs",
+		"/C/Users/Jey/Desktop/FalloutRPG/README.md",
+		"/C/Users/Jey/Desktop/FalloutRPG/LinkCompendium.md",
+		"/C/Users/Jey/Desktop/FalloutRPG/Fallout Rpg/Assets/Resources/Data/gui.txt",
+		"/C/Users/Jey/Desktop/FalloutRPG/Fallout Rpg/Assets/Resources/Data/story.txt",
+		"/C/Users/Jey/Desktop/FalloutRPG/Fallout Rpg/Assets/Resources/Data/characters.txt",
+		"/C/Users/Jey/repos/Pokemon Wars/Assets/plugins/GameData.cs",
+		"/C/Users/Jey/Desktop/FalloutRPG/Fallout Rpg/Assets/Visual Novel/Ideas.txt",
+		"/C/Users/Jey/Desktop/FalloutRPG/.git/gitignore.txt",
+		"/C/Users/Jey/Desktop/FalloutRPG/RebaseTest.txt",
+		"/C/Users/Jey/Desktop/Reading",
+		"/C/Users/Jey/Desktop/talk.txt",
+		"/C/Users/Jey/AppData/Local/Temp/Rar$DIa0.790/AS-FoT-OrionsCursePart1-ReadMe.txt",
+		"/C/Users/Jey/Desktop/downloads/Finished/Unreal Tournament/readme.txt",
+		"/C/Users/Jey/AppData/Local/AO Vulcanus/data.bin",
+		"/C/Users/Jey/repos/AO Vulc Counter/Assets/Vulcanus.cs",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/Resources/Model/Unit.prefab",
+		"/C/Users/Jey/Desktop/website.txt",
+		"/C/Users/Jey/Desktop/Angelica",
+		"/C/Users/Jey/repos/LD48/Assets/HumanAI.cs",
+		"/C/Users/Jey/Desktop/Idle Mercenaries.md",
+		"/C/Nexon/Atlantica/DUI/BATTLEFIELD/BattleFieldCharInfoDlg/DLG_BattleFieldCharInfo.ddf",
+		"/C/Nexon/Atlantica/NewQuest/NChar3D/Preset/SNAKE.xml",
+		"/C/Nexon/Atlantica/NChar3D/Preset/SNAKE.xml",
+		"/C/Nexon/Atlantica/DUI/Interface/CardGachaMsgBoxDlg/DLG_CardGachaMsgBoxDlg.ddf",
+		"/C/Nexon/Atlantica/NeoUI/Data/CharInfo/DLG_CharInfo.ddf",
+		"/C/Users/Jey/repos/Indie Vs Pewdiepie/Assets/Scripts/Laser.cs",
+		"/C/Users/Jey/repos/Gatchi/Assets/KewryEngine/TerribleStuff/Shoot'em'up/Weapons/LaserWeapon.cs",
+		"/C/Users/Jey/repos/LD48/Assets/Scripts/Weapon.cs",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/Combat/COMBAT_CLASS.cs",
+		"/C/Users/Jey/Dropbox/RandomStoryOfAwesomeArchive/002.docx",
+		"/C/Users/Jey/Dropbox/Images/CPU-Z Vanberk/VANBERK-PC.txt",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/Character/Unit.cs",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/Combat/DamageReport.cs",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/Combat/DamageReport",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/Combat/Team.cs",
+		"/C/Users/Jey/repos/Idle Mercenaries/Assets/Combat/CombatResult.cs",
+		"/C/Users/Jey/Desktop/G-RJ147124-1.09/G-RJ147124-1.09/tkool/readme.txt",
+		"/C/Users/Jey/Desktop/ちちうし物語_ver2.07/readme.txt",
+		"/C/Users/Jey/Desktop/RJ148565_ana_trial/readme.txt",
+		"/C/Users/Jey/Desktop/downloads/Finished/変態黙示録ペニックス DL版/hp02/readme.txt",
+		"/C/Users/Jey/repos/Pokemon Wars/Assets/Scripts/GUI/RectTransformExtensions.cs",
+		"/C/Users/Jey/repos/Pokemon Wars/Assets/Scripts/PObject.cs",
+		"/C/Users/Jey/repos/Pokemon Wars/Assets/Scripts/Pokemon/Pokemon.cs",
+		"/C/Users/Jey/Desktop/nomes.txt",
+		"/C/Users/Jey/Downloads/jack1-2-1/fix_readme.txt",
+		"/C/Users/Jey/Downloads/jack1-2-1/!readme.txt",
+		"/C/Users/Jey/AppData/Local/Temp/Rar$DIa0.405/Readme Please.txt",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/README.md",
+		"/C/Users/Jey/Desktop/Idle Mercenaries.txt",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Markdown.sublime-settings",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/User/Bold and Italic Markers.tmPreferences",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
+		"/C/Program Files/Sublime Text 3/Packages/Markdown.sublime-package",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Markdown (Standard).sublime-settings",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/User/Markdown (Standard).sublime-settings",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Installed Packages/MarkdownEditing.sublime-package",
+		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/User/MultiMarkdown.sublime-settings",
+		"/C/Users/Jey/Desktop/Idle Mercenaries",
+		"/C/Users/Jey/repos/Pokemon Wars/Assets/Resources/move.txt",
+		"/C/Users/Jey/repos/Pokemon Wars/Assets/Resources/moveStripped.txt",
+		"/C/Users/Jey/Desktop/asd/ClassLibrary1/ClassLibrary1/Unsafe.cs",
+		"/C/Users/Jey/AppData/Local/Temp/Rar$DIa0.084/readme.txt",
+		"/C/Users/Jey/Desktop/atlantica crafting.css",
+		"/C/Users/Jey/repos/Pokemon Wars/Assets/Resources/cleanJSv2.json",
+		"/C/Users/Jey/repos/Pokemon Wars/Assets/Resources/cleanJS.json"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"healthText",
+			"button.data",
+			"dpsTimer",
+			"onDPS",
+			"selectedDungeon",
+			"detail.selectedDungeon",
+			"zoneCount",
+			"zones",
+			");\n",
+			".push",
+			"detail.list",
+			"merc.text",
+			"ownedMercs",
+			"state.mercs",
+			"buttonGFX",
+			"events",
+			"2",
+			"purchase",
+			"onChara",
+			"character",
+			"level",
+			"add.button",
+			"characters",
+			"oncharac",
+			"this",
+			"button",
+			"upgradeButtons",
+			"upgradeButtonsData",
+			"world",
+			");",
+			"this.game.load.image(",
+			"setTo",
+			"texImage2D",
+			"step",
+			"2",
+			"Error establishing a database connection",
+			"silver ingot",
+			"Adamantium ingot",
+			"Adamantium Ingot",
+			"draw",
+			"King's Shield",
+			"onTryHit:",
+			"onTryHi",
+			"onTryHit",
+			"onSwitchInPriority",
+			"fellstinger",
+			"Flower Shield",
+			"damage:",
+			"stallingMove",
+			"punch",
+			"onBasePowerPriority",
+			" charge",
+			"charge",
+			"gravity",
+			"onDamagePriority",
+			"distance",
+			"sound",
+			"recharge",
+			"nonsky",
+			"bite",
+			"reflectable",
+			"pulse:",
+			"duration",
+			"1}}",
+			"isNotProtec",
+			"isNot",
+			"auth",
+			"isNot",
+			",isNotProtectable",
+			"isNot",
+			"flags: {}",
+			"isNot",
+			"snatch:",
+			"isViable:",
+			"bullet:",
+			"spd:",
+			"drain:",
+			"accuracy:",
+			"accuracy",
+			"secondaries",
+			"secondary",
+			"function",
+			"target)",
+			" target)",
+			"nonGhostTarget",
+			"pp:m",
+			"pp:",
+			"accuracy:true",
+			"BasePower",
+			"Target",
+			"	",
+			"lv. 1",
+			"lv.1",
+			"<td class=\"cen\" rowspan=\"2\">",
+			"||||",
+			"||",
+			"|||||||||",
+			"<td align=\"center\" class=\"fooinfo\">",
+			"<table class=\"dextable\">",
+			"Bullet Seed",
+			"TM09",
+			"<table  class=\"dextable\">",
+			"Grass Pledge",
+			"</th></tr><tr><td rowspan=\"2\" class=\"fooinfo\">",
+			"<table class=\"dextable\">",
+			"<!",
+			"<a name=\"attacks\">",
+			"<a name=\\\"attacks\\\">",
+			"</tr></tbody></table><br><a name=\"attacks\"></a>",
+			"</tr></tbody></table><br><a name=\"attacks\"></a><table class=\"dextable\">",
+			"<th class=\"attheader\">Effect %</th></tr><tr>",
+			"<th class=\"attheader\">Level</th><th class=\"attheader\">",
+			"<td width=\"1%\" height=\"86\" valign=\"top\" bgcolor=\"#507C36\"><div id=\"menu\">",
+			"pick",
+			"ite",
+			"lite",
+			"formeLetter:\"M",
+			"displayTable()",
+			"play.",
+			"internationalspacepimps",
+			"contest",
+			"/type/",
+			"type",
+			"<table  class=\"dextable\">",
+			"><table  class=\"dextable\">",
+			"class=\"dextable\"",
+			"class=\"dextab\"",
+			"<option value"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"onUpdateTimer",
+			"onUpdate",
+			"zoneCount",
+			"gfx",
+			"merc",
+			"state",
+			"character",
+			"char",
+			"characters",
+			"charactersData",
+			"],",
+			"[",
+			"totalbiscuit",
+			"\"locked\":0",
+			"lastset",
+			" ",
+			"Earn",
+			"Winning",
+			"Loss",
+			"\"",
+			"$header",
+			"ADAEAD",
+			"7d7e7d",
+			"45484d",
+			"2f2f2f",
+			".gridview"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.variable_get":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "HephaestusIdle.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Jey\\Desktop\\MiniLD #53\\ProjectSettings\\st2.sublime-workspace"
+			]
+		],
+		"width": 618.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 217.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
