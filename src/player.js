@@ -20,6 +20,7 @@ var Player = function(state) {
 
 	this.addGold = function(amount) {
 		this.gold += amount;
+		state.playerGoldText.text = 'Gold: ' + this.gold;
 	}
 	
 
@@ -38,6 +39,16 @@ var Player = function(state) {
 		ui.itemsLabel = ui.addChild(state.game.add.text(
 			bg.width - 10, 20, 'Items', TextStyles.simple16));
 		ui.itemsLabel.anchor.x = 1;
+
+		var buttonGFX = cache.getBitmapData('dungeonGreenButton');
+
+		ui.materialList = ui.addChild(ScrollList(state, 10, 40, 0, undefined, buttonGFX));
+		ui.itemList = ui.addChild(ScrollList(state, ui.itemsLabel.position.x, 
+			40, 0, this.onItemSelect, buttonGFX, true));
+
+
+
+
 		return ui;
 	}
 }
