@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"for",
+				"for	for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"detail",
+				"details"
+			],
+			[
+				"but",
+				"buttonGFX"
+			],
+			[
+				"sel",
+				"selectedSkill"
+			],
+			[
+				"craf",
+				"craftingData"
+			],
+			[
+				"scro",
+				"scrollbarGFX"
+			],
+			[
+				"on",
+				"onEquipmentClick"
+			],
+			[
 				"pla",
 				"player"
 			],
@@ -34,14 +66,6 @@
 			[
 				"monst",
 				"monster"
-			],
-			[
-				"sel",
-				"selectedDungeon"
-			],
-			[
-				"for",
-				"for	for (…) {…}"
 			],
 			[
 				"bui",
@@ -132,10 +156,6 @@
 				"hireMercButton"
 			],
 			[
-				"but",
-				"buttonGFX"
-			],
-			[
 				"button",
 				"button"
 			],
@@ -194,10 +214,6 @@
 			[
 				"char",
 				"characterData"
-			],
-			[
-				"on",
-				"onInputDown"
 			],
 			[
 				"skil",
@@ -467,6 +483,48 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/game.js",
+			"settings":
+			{
+				"buffer_size": 3849,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/generatedUI.js",
+			"settings":
+			{
+				"buffer_size": 4289,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/Phaser-GUIUtilities.js",
+			"settings":
+			{
+				"buffer_size": 962,
+				"line_ending": "Windows",
+				"name": "Phaser-GUIUtilities.js"
+			}
+		},
+		{
+			"file": "lib/textStyles.js",
+			"settings":
+			{
+				"buffer_size": 682,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/crafting.js",
+			"settings":
+			{
+				"buffer_size": 3181,
+				"line_ending": "Windows",
+				"name": "crafting.js"
+			}
+		}
 	],
 	"build_system": "Packages/User/chrome.sublime-build",
 	"build_system_choices":
@@ -538,10 +596,17 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/HephaestusIdle",
+		"/C/xampp/htdocs/HephaestusIdle/lib",
 		"/C/xampp/htdocs/HephaestusIdle/src"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/HephaestusIdle/lib/textStyles.js",
+		"/C/xampp/htdocs/HephaestusIdle/src/mercenaryList.js",
+		"/C/xampp/htdocs/HephaestusIdle/index.html",
+		"/C/xampp/htdocs/HephaestusIdle/src/player.js",
+		"/C/xampp/htdocs/HephaestusIdle/README.md",
+		"/C/xampp/htdocs/HephaestusIdle/Task List.md",
 		"/C/xampp/htdocs/GITD47/Task List.md",
 		"/C/xampp/htdocs/GITD47/src/player.js",
 		"/C/xampp/htdocs/GITD47/src/mercenaryList.js",
@@ -552,7 +617,6 @@
 		"/C/xampp/htdocs/GITD47/lib/textStyles.js",
 		"/C/xampp/htdocs/GITD47/src/game.js",
 		"/C/xampp/htdocs/GITD47/index.html",
-		"/C/xampp/htdocs/HephaestusIdle/README.md",
 		"/C/xampp/htdocs/GITD47/src/generatedUI.js",
 		"/C/xampp/htdocs/GITD47/src/equipment.js",
 		"/C/xampp/htdocs/GITD47/src/monster.js",
@@ -664,12 +728,7 @@
 		"/C/Users/Jey/AppData/Roaming/Sublime Text 3/Packages/User/MultiMarkdown.sublime-settings",
 		"/C/Users/Jey/Desktop/Idle Mercenaries",
 		"/C/Users/Jey/repos/Pokemon Wars/Assets/Resources/move.txt",
-		"/C/Users/Jey/repos/Pokemon Wars/Assets/Resources/moveStripped.txt",
-		"/C/Users/Jey/Desktop/asd/ClassLibrary1/ClassLibrary1/Unsafe.cs",
-		"/C/Users/Jey/AppData/Local/Temp/Rar$DIa0.084/readme.txt",
-		"/C/Users/Jey/Desktop/atlantica crafting.css",
-		"/C/Users/Jey/repos/Pokemon Wars/Assets/Resources/cleanJSv2.json",
-		"/C/Users/Jey/repos/Pokemon Wars/Assets/Resources/cleanJS.json"
+		"/C/Users/Jey/repos/Pokemon Wars/Assets/Resources/moveStripped.txt"
 	],
 	"find":
 	{
@@ -687,6 +746,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"line",
+			"details",
+			"selectedSkill",
+			"new",
+			"}.\n",
+			">\n",
+			"equipm",
+			"myMercs",
 			"healthText",
 			"button.data",
 			"dpsTimer",
@@ -806,15 +873,7 @@
 			"formeLetter:\"M",
 			"displayTable()",
 			"play.",
-			"internationalspacepimps",
-			"contest",
-			"/type/",
-			"type",
-			"<table  class=\"dextable\">",
-			"><table  class=\"dextable\">",
-			"class=\"dextable\"",
-			"class=\"dextab\"",
-			"<option value"
+			"internationalspacepimps"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -858,8 +917,165 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/game.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3849,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1767,
+								1767
+							]
+						],
+						"settings":
+						{
+							"side_bar_folders_auto_load_folder": 1,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 855.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/generatedUI.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4289,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2724,
+								2706
+							]
+						],
+						"settings":
+						{
+							"side_bar_folders_auto_load_folder": 1,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 405.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lib/Phaser-GUIUtilities.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 962,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								942,
+								942
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Phaser-GUIUtilities.js",
+							"side_bar_folders_auto_load_folder": 1,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/textStyles.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 682,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"side_bar_folders_auto_load_folder": 1,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "src/crafting.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3181,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1668,
+								1668
+							]
+						],
+						"settings":
+						{
+							"auto_name": "crafting.js",
+							"side_bar_folders_auto_load_folder": 1,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 900.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -880,11 +1096,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -944,7 +1167,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

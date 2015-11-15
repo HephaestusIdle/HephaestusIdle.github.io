@@ -83,6 +83,11 @@ rectUIData = [
 	{	name: 'mapZoneCleared', width: 48, height:32,
 		fillStyle: '#4c704c', strokeStyle: '#fff', lineWidth: 4,
 		fillRect: [2, 2, 44, 28], strokeRect: [0, 0, 0, 0]
+	},
+	/* crafting.js*/
+	{	name: 'craftingPanel', width: 500, height:500,
+		fillStyle: '#9a783d', strokeStyle: '#35371c', lineWidth: 12,
+		fillRect: [0, 0, 500, 500], strokeRect: [0, 0, 500, 500]
 	}
 ];
 

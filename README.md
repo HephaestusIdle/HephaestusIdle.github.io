@@ -1,4 +1,3 @@
-
 * Hire a Merc _done_
 * Send To Dungeon _done_
     - Fight through Dungeon _done_

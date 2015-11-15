@@ -25,11 +25,7 @@ function buildMercenaryList(state) {
 	
 	/* Hire button */
 	gfx = cache.getBitmapData('hireMercButton');
-	var hireMercButton = state.game.add.button(8, 8, gfx, hireListToggle);
-	hireMercButton.text = hireMercButton.addChild(
-		state.game.add.text(gfx.width * 0.5, gfx.height *0.55, 
-		'Hire Mercenary', TextStyles.simpleCenter));
-	hireMercButton.text.anchor.set(0.5);
+	var hireMercButton = Button(state, 8,8,gfx, 'Hire Mercenary',TextStyles.simpleCenter,hireListToggle);
 	state.upgradePanel.addChild(hireMercButton);
 	state.upgradePanel.hireMercButton = hireMercButton;
 

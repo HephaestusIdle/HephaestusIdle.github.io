@@ -11,6 +11,7 @@ game.state.add('play', {
 	create: function() {
 		
 		var state = this;
+
 		//game loop
 		this.onUpdateTimer = this.game.time.events.loop(1000, this.onUpdate, this);
 		
@@ -31,7 +32,7 @@ game.state.add('play', {
 		//buildMonster(state);
 		//spawnRandomMonster(state);
 		//buildMonsterUI(state);
-		buildEquipment(state);
+		//buildEquipment(state);
 		
 		
 
@@ -68,6 +69,8 @@ game.state.add('play', {
 		this.playerGoldText = this.add.text(30,30, 'Gold: '+ this.player.gold, {
 			font:'24px Arial Black', fill:'#fff', strokeThickness:4
 		});
+		
+		this.crafting = new Crafting(this, 20,10);
 
 	},
 	onUpdate:function(){

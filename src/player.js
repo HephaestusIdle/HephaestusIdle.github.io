@@ -14,5 +14,5 @@ var Player = function() {
 	this.addGold = function(amount) {
 		this.gold += amount;
 	}
-
+	
 }
