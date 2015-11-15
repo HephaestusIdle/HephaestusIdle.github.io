@@ -52,10 +52,11 @@ var Crafting = function(state, x, y) {
 	var cache = state.game.cache;
 	var buttonGFX = cache.getBitmapData('dungeonGreenButton');
 	var bg = cache.getBitmapData('craftingPanel');
-	var craftGFX = cache.getBitmapData('hireMercDetailButton');
+	var craftGFX = cache.getBitmapData('hireMercButton');
 	var self = this;
 
 	this.graphics = state.game.add.image(x, y, bg);
+	this.graphics.visible = false;
 
 	this.details = this.graphics.addChild(state.game.add.group());
 	this.details.position.setTo(40 + buttonGFX.width * 2, 4);
@@ -67,14 +68,15 @@ var Crafting = function(state, x, y) {
 
 	this.material = []; //required materials holder
 
-	this.craftBTN = Button(state, bg.width * 0.5, bg.height - craftGFX.height - 10,
-	 'Craft ???', TextStyles.simpleCenter, doCraft);
+	this.craftBTN = this.graphics.addChild(Button(
+		state, bg.width * 0.5, bg.height - craftGFX.height - 10,
+		craftGFX, 'Craft $', TextStyles.simpleCenter, this.doCraft));
 
 	/* detailed item scrollList code */
 	this.onItemSelect = function(button) {
 		if (items.skillName == button.item.name) 
 			return; //already selected ignore click
-		var it = button.item;
+		var it = self.selectedItem = button.item;
 		//display selected item details
 		self.title.text = 'Crafting ' + it.name;
 
@@ -98,8 +100,10 @@ var Crafting = function(state, x, y) {
 
 			m.push(matText);
 		});
-		
+
+		self.craftBTN.text.text = 'Craft $' + it.gold;
 	}
+
 	var items = this.items = this.graphics.addChild(ScrollList(
 		state, 12 + buttonGFX.width, 4, 0, this.onItemSelect, buttonGFX));
 	/* end of detailed item scrollList code */
@@ -127,7 +131,34 @@ var Crafting = function(state, x, y) {
 
 	/*end of left most scrollList code*/
 
-	this.doCraft = function() {
+	
+}
+
+
+Crafting.prototype.doCraft = function() {
+	var it = this.state.crafting.selectedItem;
+	console.log('Doing a craft.... ');
+	if (it == undefined) {
+		console.log('nothing to craft!');
+		return;
+	} else {
+		console.log('Attempting to craft ' + it.name);
+
+		var inv = this.state.player.inventory;
+		var mats = it.material; //required material list
+		var canCraft = true;
 		
+		var i = mats.length;
+		var m, im; //helper var
+	    while (i--) {
+	    	m = mats[i];
+	    	im = inv[m[0]];
+	        if (im === undefined || im < m[1]) {
+	            canCraft = false;
+	            break;
+	        }
+	    }
+		
+		console.log(canCraft);
 	}
 }

@@ -71,7 +71,7 @@ game.state.add('play', {
 		});
 		
 		this.crafting = new Crafting(this, 20,10);
-
+		
 	},
 	onUpdate:function(){
 		var mercs = this.myMercs;
