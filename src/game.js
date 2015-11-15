@@ -11,6 +11,7 @@ game.state.add('play', {
 	create: function() {
 		
 		var state = this;
+		var cache = state.game.cache;
 
 		//game loop
 		this.onUpdateTimer = this.game.time.events.loop(1000, this.onUpdate, this);
@@ -24,6 +25,8 @@ game.state.add('play', {
 				state.game.world.height, image, '', state.background);
 				bg.tileScale.setTo(4,4);
 			});
+		this.dungeonGround = this.game.add.group();
+		this.foreGround = this.game.add.group();
 
 		//buildDungeon(state);
 		buildDungeonSelector(state);
@@ -37,7 +40,7 @@ game.state.add('play', {
 		
 
 		//load player
-		this.player = new Player();
+		this.player = new Player(state);
 
 		//text asset pool
 		this.dmgTextPool = this.add.group();
@@ -70,8 +73,13 @@ game.state.add('play', {
 			font:'24px Arial Black', fill:'#fff', strokeThickness:4
 		});
 		
-		this.crafting = new Crafting(this, 20,10);
+		this.crafting = new Crafting(this, 
+			cache.getBitmapData('craftingPanel').width * -1 + 25, 25);
 		
+		var gfx = cache.getBitmapData('inventoryUI');
+		this.inventoryUI = this.player.inventoryUI(
+			gfx.width * -1 + 25, 45,  gfx);
+
 	},
 	onUpdate:function(){
 		var mercs = this.myMercs;

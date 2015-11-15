@@ -10,7 +10,7 @@ var craftingData = [
 				name: 'Steel Sword', damage: 1, gold: 5, material: [['Metal', 1]]
 			},
 			{
-				name: 'Mithril Sword', damage: 1, gold: 5, material: [['Metal', 1]]
+				name: 'Mithril Sword', damage: 1, gold: 500, material: [['Metal', 1], ['Mithril', 1]]
 			},
 		]
 	}, 
@@ -55,8 +55,7 @@ var Crafting = function(state, x, y) {
 	var craftGFX = cache.getBitmapData('hireMercButton');
 	var self = this;
 
-	this.graphics = state.game.add.image(x, y, bg);
-	this.graphics.visible = false;
+	this.graphics = state.foreGround.addChild(state.game.add.image(x, y, bg));
 
 	this.details = this.graphics.addChild(state.game.add.group());
 	this.details.position.setTo(40 + buttonGFX.width * 2, 4);
@@ -133,9 +132,9 @@ var Crafting = function(state, x, y) {
 
 	/* show me button */
 	var gfx = cache.getBitmapData('upgradePanelButton');
-	var showButton = this.graphics.addChild(Button(
-		state, this.graphics.width - gfx.width * 0.3, 0,
-		gfx, 'Crafting', TextStyles.simpleCenter, showMercenaryListMenu));
+	var showButton = this.graphics.addChild(SlideInOutButton(
+		state, bg.width - gfx.width * 0.3, 0, gfx, 'Crafting', 
+		TextStyles.simpleCenter, this.graphics, {x: x}, {x: -8}));
 }
 
 
@@ -143,8 +142,9 @@ Crafting.prototype.doCraft = function() {
 	var it = this.state.crafting.selectedItem;
 	console.log('Doing a craft.... ');
 	if (it == undefined) {
-		console.log('nothing to craft!');
 		return;
+	} else if (this.state.player.gold < it.gold) {
+		console.log('Not enough gold!');
 	} else {
 		console.log('Attempting to craft ' + it.name);
 
@@ -162,7 +162,17 @@ Crafting.prototype.doCraft = function() {
 	            break;
 	        }
 	    }
-		
-		console.log(canCraft);
+		if (canCraft) {
+			this.state.player.addGold(-it.gold);
+			i = mats.length
+			console.log(inv);
+			while (i--) {
+				console.log('start ' + m[0] + ' ' + inv[m[0]]);
+		    	inv[m[0]] -= m[1];
+		    	console.log('end ' +m[0] + ' ' + inv[m[0]]);
+		    }	
+		    it.quantity = 1;
+			this.state.player.addCraft(it);
+		}
 	}
 }

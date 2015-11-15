@@ -26,3 +26,5 @@ Dungeon
 #Stuff to fix
 * Combat
     - Zone Clears in odd way, should be green on kill?
+* UI
+    - SlideInOut/foreGround left side stuff requires rearranging on hide

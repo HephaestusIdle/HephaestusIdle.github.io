@@ -88,6 +88,11 @@ rectUIData = [
 	{	name: 'craftingPanel', width: 500, height:500,
 		fillStyle: '#9a783d', strokeStyle: '#35371c', lineWidth: 12,
 		fillRect: [0, 0, 500, 500], strokeRect: [0, 0, 500, 500]
+	},
+	/* inventory */
+	{	name: 'inventoryUI', width: 250, height:400,
+		fillStyle: '#9a783d', strokeStyle: '#35371c', lineWidth: 12,
+		fillRect: [0, 0, 250, 400], strokeRect: [0, 0, 250, 400]
 	}
 ];
 

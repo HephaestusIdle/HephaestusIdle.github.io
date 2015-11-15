@@ -13,8 +13,8 @@ function buildMercenaryList(state) {
 
 	var cache = state.game.cache;
 	var gfx;
-	var upgradePanel = state.upgradePanel = state.game.add.image(
-		-225, 5, cache.getBitmapData('upgradePanel'));
+	var upgradePanel = state.upgradePanel = state.foreGround.addChild(state.game.add.image(
+		-225, 5, cache.getBitmapData('upgradePanel')));
 	
 	var mercs = state.ownedMercs = upgradePanel.addChild(state.game.add.group());
 	state.myMercs = [];
@@ -32,11 +32,15 @@ function buildMercenaryList(state) {
 	mercs.position.setTo(8, 12 + gfx.height);
 	
 	/* show me button */
+	gfx = cache.getBitmapData('upgradePanelButton');
 	var upgradePanelButton = upgradePanel.addChild(SlideInOutButton(
-		state, upgradePanel.width - gfx.width * 0.3, 0, 
-		cache.getBitmapData('upgradePanelButton'), 'Mercenary', 
-		TextStyles.simpleCenter, upgradePanel, {x: -225}, {x: -18}));
-
+		state, upgradePanel.width - gfx.width * 0.3, 0, gfx , 'Mercenary', 
+		TextStyles.simpleCenter, upgradePanel, {x: upgradePanel.position.x}, {x: -18}));
+	upgradePanelButton.events.onInputDown.add(function() {
+		if (this.hireMercButton.list.visible) {
+			this.hireMercButton.list.visible = false;
+		}
+	}, {hireMercButton});
 
 	/* hire merc List */
 	gfx = cache.getBitmapData('hireMercListPanel');
@@ -84,16 +88,6 @@ function addMercToList(state, mercs, mercData, index) {
 	merc.sendToDungeonBTN.merc = merc;
 	merc.sendToDungeonBTN.events.onInputDown.add(state.onSendToDungeonClick, state)
 }
-
-function showMercenaryListMenu(button) {
-	if (button.showing) {
-		this.game.add.tween(button.group).to({x:-225}, 2000, Phaser.Easing.Back.Out, true);
-	} else {
-		this.game.add.tween(button.group).to({x:-18}, 2000, Phaser.Easing.Back.Out, true);
-	}
-	button.showing = !button.showing;
-}
-
 
 /* hire merc methods */
 function hireListToggle(button) {
