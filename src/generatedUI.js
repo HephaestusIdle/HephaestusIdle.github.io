@@ -4,9 +4,9 @@ rectUIData = [
 		fillStyle: '#9a783d', strokeStyle: '#35371c', lineWidth: 12,
 		fillRect: [0, 0, 250, 500], strokeRect: [0, 0, 250, 500]
 	},
-	{	name: 'upgradePanelButton', width: 20, height:64,
-		fillStyle: '#CC00CC', strokeStyle: '#666699', lineWidth: 10,
-		fillRect: [0, 0, 20, 64], strokeRect: [0, 0, 20, 64]
+	{	name: 'upgradePanelButton', width: 80, height:22,
+		fillStyle: '#CC00CC', strokeStyle: '#666699', lineWidth: 6,
+		fillRect: [0, 0, 80, 22], strokeRect: [0, 0, 80, 22]
 	},
 	{	name: 'mercBackground', width: 230, height:60,
 		fillStyle: '#e6dec7', strokeStyle: '#35371c', lineWidth: 4,

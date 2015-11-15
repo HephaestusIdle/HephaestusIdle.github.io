@@ -131,7 +131,11 @@ var Crafting = function(state, x, y) {
 
 	/*end of left most scrollList code*/
 
-	
+	/* show me button */
+	var gfx = cache.getBitmapData('upgradePanelButton');
+	var showButton = this.graphics.addChild(Button(
+		state, this.graphics.width - gfx.width * 0.3, 0,
+		gfx, 'Crafting', TextStyles.simpleCenter, showMercenaryListMenu));
 }
 
 

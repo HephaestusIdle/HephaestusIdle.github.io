@@ -13,10 +13,10 @@ function buildMercenaryList(state) {
 
 	var cache = state.game.cache;
 	var gfx;
-
-	state.upgradePanel = state.game.add.image(-225, 5, cache.getBitmapData('upgradePanel'));
+	var upgradePanel = state.upgradePanel = state.game.add.image(
+		-225, 5, cache.getBitmapData('upgradePanel'));
 	
-	var mercs = state.ownedMercs = state.upgradePanel.addChild(state.game.add.group());
+	var mercs = state.ownedMercs = upgradePanel.addChild(state.game.add.group());
 	state.myMercs = [];
 
 	/*mercsData.forEach(function(mercData, index) {
@@ -26,18 +26,16 @@ function buildMercenaryList(state) {
 	/* Hire button */
 	gfx = cache.getBitmapData('hireMercButton');
 	var hireMercButton = Button(state, 8,8,gfx, 'Hire Mercenary',TextStyles.simpleCenter,hireListToggle);
-	state.upgradePanel.addChild(hireMercButton);
-	state.upgradePanel.hireMercButton = hireMercButton;
+	upgradePanel.addChild(hireMercButton);
+	upgradePanel.hireMercButton = hireMercButton;
 
 	mercs.position.setTo(8, 12 + gfx.height);
 	
 	/* show me button */
-	gfx = cache.getBitmapData('upgradePanelButton');
-	var upgradePanelButton = state.game.add.button(state.upgradePanel.width - gfx.width * 0.5, 
-		state.upgradePanel.height * 0.5 - gfx.height * 0.5, 
-		gfx, showMercenaryListMenu);
-	state.upgradePanel.addChild(upgradePanelButton);
-	upgradePanelButton.group = state.upgradePanel;
+	var upgradePanelButton = upgradePanel.addChild(SlideInOutButton(
+		state, upgradePanel.width - gfx.width * 0.3, 0, 
+		cache.getBitmapData('upgradePanelButton'), 'Mercenary', 
+		TextStyles.simpleCenter, upgradePanel, {x: -225}, {x: -18}));
 
 
 	/* hire merc List */
