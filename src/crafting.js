@@ -1,46 +1,48 @@
 var craftingData = [
 	{	name: 'Sword',
 		item: [{
-				name: 'Cooper Sword', damage: 1, gold: 5, material: [['Metal', 1]], enchant:[['Metal', 1]]
+				name: 'Copper Sword', gold: 5, 
+				material: [['Metal', 1]], forge:[['Metal', 1]], type:0,
+				stats: { Damage: 1, Strength: 1}
 			},
 			{
-				name: 'Iron Sword', damage: 1, gold: 5, material: [['Metal', 2], ['Iron', 1]]
+				name: 'Iron Sword', damage: 1, gold: 5, material: [['Metal', 2], ['Iron', 1]], type:0
 			},
 			{
-				name: 'Steel Sword', damage: 1, gold: 5, material: [['Metal', 1]]
+				name: 'Steel Sword', damage: 1, gold: 5, material: [['Metal', 1]], type:0
 			},
 			{
-				name: 'Mithril Sword', damage: 1, gold: 500, material: [['Metal', 1], ['Mithril', 1]]
+				name: 'Mithril Sword', damage: 1, gold: 500, material: [['Metal', 1], ['Mithril', 1]], type:0
 			},
 		]
 	}, 
 	{	name: 'Armor',
 		item: [{
-				name: 'Cooper Armor', damage: 1, gold: 5, material: [['Metal', 1]]
+				name: 'Cooper Armor', damage: 1, gold: 5, material: [['Metal', 1]], type:0
 			}
 		]
 	}, 
 	{	name: 'Helmet',
 		item: [{
-				name: 'Cooper Helmet', damage: 1, gold: 5, material: [['Metal', 1]]
+				name: 'Cooper Helmet', damage: 1, gold: 5, material: [['Metal', 1]], type:0
 			}
 		]
 	}, 
 	{	name: 'Gloves',
 		item: [{
-				name: 'Cooper Gloves', damage: 1, gold: 5, material: [['Metal', 1]]
+				name: 'Cooper Gloves', damage: 1, gold: 5, material: [['Metal', 1]], type:0
 			}
 		]
 	}, 
 	{	name: 'Pants',
 		item: [{
-				name: 'Cooper Pants', damage: 1, gold: 5, material: [['Metal', 1]]
+				name: 'Cooper Pants', damage: 1, gold: 5, material: [['Metal', 1]], type:0
 			}
 		]
 	}, 
 	{	name: 'Shoes',
 		item: [{
-				name: 'Cooper Shoes', damage: 1, gold: 5, material: [['Metal', 1]]
+				name: 'Cooper Shoes', damage: 1, gold: 5, material: [['Metal', 1]], type:0
 			}
 		]
 	}, 
@@ -173,9 +175,7 @@ Crafting.prototype.doCraft = function() {
 			i = mats.length
 			console.log(inv);
 			while (i--) {
-				console.log('start ' + m[0] + ' ' + inv[m[0]]);
 		    	inv[m[0]] -= m[1];
-		    	console.log('end ' +m[0] + ' ' + inv[m[0]]);
 		    }	
 		    it.quantity = 1;
 			this.state.player.addCraft(it);
@@ -189,9 +189,9 @@ Crafting.getItem = function(item) {
 		it[key] = item[key];
 	}
 	it.baseName = it.name;
-	if (it.enchantLevel == undefined)
-		it.enchantLevel = 0;
-	Crafting.setEnchantCost(it);
+	if (it.forgeLevel == undefined)
+		it.forgeLevel = 0;
+	Crafting.setforgeCost(it);
 	return it;
 }
 
@@ -204,6 +204,6 @@ Crafting.cloneItem = function(item) {
 	return it;
 }
 
-Crafting.setEnchantCost = function(item) {
-	item.enchantCost = Math.floor(item.gold + (0.75 * item.gold * item.enchantLevel));
+Crafting.setforgeCost = function(item) {
+	item.forgeCost = Math.floor(item.gold + (0.75 * item.gold * item.forgeLevel));
 }

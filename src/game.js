@@ -73,15 +73,16 @@ game.state.add('play', {
 			font:'24px Arial Black', fill:'#fff', strokeThickness:4
 		});
 		
+		state.tooltip = new ToolTip(state);
+		
 var gfx = cache.getBitmapData('inventoryUI');
 		this.inventoryUI = this.player.inventoryUI(
 			gfx.width * -1 + 25, 45,  gfx);
-		
+
 		this.crafting = new Crafting(this, 
 			cache.getBitmapData('craftingPanel').width * -1 + 25, 25);
 		
 		
-
 
 
 	},

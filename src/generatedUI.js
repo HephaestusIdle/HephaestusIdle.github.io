@@ -98,9 +98,18 @@ rectUIData = [
 		fillStyle: '#458b00', strokeStyle: '#000', lineWidth: 2,
 		fillRect: [0, 0, 120, 20], strokeRect: [0, 0, 120, 20]
 	},
-	{	name: 'enchantButton', width: 70, height:20,
+	{	name: 'forgeButton', width: 70, height:20,
 		fillStyle: '#458b00', strokeStyle: '#000', lineWidth: 2,
 		fillRect: [0, 0, 70, 20], strokeRect: [0, 0, 70, 20]
+	},
+	{	name: 'forgeSmallButton', width: 20, height:20,
+		fillStyle: '#458b00', strokeStyle: '#000', lineWidth: 2,
+		fillRect: [0, 0, 20, 20], strokeRect: [0, 0, 20, 20]
+	},
+	/* tooltip */
+	{	name: 'tooltip', width: 1, height:1,
+		fillStyle: '#000', strokeStyle: '#000', lineWidth: 0,
+		fillRect: [0, 0, 1, 1], strokeRect: [0, 0, 1, 1]
 	}
 ];
 
