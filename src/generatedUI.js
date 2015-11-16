@@ -93,6 +93,14 @@ rectUIData = [
 	{	name: 'inventoryUI', width: 250, height:400,
 		fillStyle: '#9a783d', strokeStyle: '#35371c', lineWidth: 12,
 		fillRect: [0, 0, 250, 400], strokeRect: [0, 0, 250, 400]
+	},
+	{	name: 'inventoryListButton', width: 120, height:20,
+		fillStyle: '#458b00', strokeStyle: '#000', lineWidth: 2,
+		fillRect: [0, 0, 120, 20], strokeRect: [0, 0, 120, 20]
+	},
+	{	name: 'enchantButton', width: 70, height:20,
+		fillStyle: '#458b00', strokeStyle: '#000', lineWidth: 2,
+		fillRect: [0, 0, 70, 20], strokeRect: [0, 0, 70, 20]
 	}
 ];
 

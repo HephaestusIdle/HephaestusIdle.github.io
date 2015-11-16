@@ -5,7 +5,7 @@ var dungeonList = [
 			['Rat', ['Metal']]
 		]
 	},
-	{	name:'Noob Area', sizePerZone: 3, zoneCount: 2,
+	{	name:'Noob Area', sizePerZone: 1, zoneCount: 1,
 		monster: [
 			['Bat', []],
 			['Rat', ['Metal']]

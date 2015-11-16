@@ -1,7 +1,7 @@
 var craftingData = [
 	{	name: 'Sword',
 		item: [{
-				name: 'Cooper Sword', damage: 1, gold: 5, material: [['Metal', 1]]
+				name: 'Cooper Sword', damage: 1, gold: 5, material: [['Metal', 1]], enchant:[['Metal', 1]]
 			},
 			{
 				name: 'Iron Sword', damage: 1, gold: 5, material: [['Metal', 2], ['Iron', 1]]
@@ -124,7 +124,13 @@ var Crafting = function(state, x, y) {
 		state, 4, 4, 0, this.onSkillClick, buttonGFX));
 	skills.position.setTo(4, 4);
 
+console.warn('remove item.item.forEach');
 	craftingData.forEach(function(item) {
+		item.item.forEach(function(d) {
+			d.quantity = 4;
+			state.player.addCraft(Crafting.getItem(d));	
+		})
+		
 		skills.addItem(item);
 	})
 
@@ -175,4 +181,29 @@ Crafting.prototype.doCraft = function() {
 			this.state.player.addCraft(it);
 		}
 	}
+}
+
+Crafting.getItem = function(item) {
+	var it = {};
+	for (var key in item) {
+		it[key] = item[key];
+	}
+	it.baseName = it.name;
+	if (it.enchantLevel == undefined)
+		it.enchantLevel = 0;
+	Crafting.setEnchantCost(it);
+	return it;
+}
+
+
+Crafting.cloneItem = function(item) {
+	var it = {};
+	for (var key in item) {
+		it[key] = item[key];
+	}
+	return it;
+}
+
+Crafting.setEnchantCost = function(item) {
+	item.enchantCost = Math.floor(item.gold + (0.75 * item.gold * item.enchantLevel));
 }
