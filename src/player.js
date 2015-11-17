@@ -150,9 +150,8 @@ var Player = function(state) {
 		self.forgeButton.text.text = 'Forge ' + self.forgeAmount + ' $' +
 			(self.selectedItem.forgeCost * self.forgeAmount);
 	}
-	this.onInputOver = function() {
-		var btn = this.listener;
-		var data = btn.item.item;
+	/*this.onInputOver = function() {
+		var data = this.listener.item.item;
 		var t = '';
 
 		switch (data.type) {
@@ -183,7 +182,7 @@ var Player = function(state) {
 
 
 		state.tooltip.show(game.input.x, game.input.y, data.name, t);
-	}
+	}*/
 
 	this.inventoryUI = function(x, y, bg) {
 		var cache = state.game.cache;
@@ -203,9 +202,9 @@ var Player = function(state) {
 
 		var buttonGFX = cache.getBitmapData('inventoryListButton');
 
-		ui.materialList = ui.addChild(new ScrollList(state, 10, 40, 0, undefined, buttonGFX, undefined, undefined, this.onInputOver));
+		ui.materialList = ui.addChild(new ScrollList(state, 10, 40, 0, undefined, buttonGFX, undefined, undefined, Player.onItemInputOver));
 		ui.itemList = ui.addChild(new ScrollList(state, ui.itemsLabel.position.x - buttonGFX.width, 
-			40, 0, this.onItemSelect, buttonGFX, undefined, undefined, this.onInputOver));
+			40, 0, this.onItemSelect, buttonGFX, undefined, undefined, Player.onItemInputOver));
 
 		ui.bottomText =ui.addChild(state.game.add.text(bg.width * 0.5, bg.height - 40, 
 			'2 weapons or armor of the same \ntype can be forged together!', 
@@ -238,4 +237,38 @@ var Player = function(state) {
 
 		return ui;
 	}
+}
+
+Player.onItemInputOver = function() {
+	var data = this.listener.item.item;
+	var state = this.listener.state;
+	var t = '';
+	switch (data.type) {
+		//equipment
+		case 'Helmet':
+		case 'Armor':
+		case 'Pants':
+		case 'Shoes':
+		case 'Gloves':
+		case 'Ring':
+		case 'Earing':
+		case 'Weapon': 
+			var s = data.stats;
+			for(var key in s) {
+				t += key + ': ' + (Math.round((s[key] + 0.00001) * 100) / 100) + '\n';
+			}
+			if (t != '' || t[t.length-1]=='n' && t[t.length-2] == '\\') {
+				t = t.substring(0,  t.length - 1);
+			}
+		break;
+		case 1: //material
+			t = 'Type: Material'
+		break;
+		case 2: //item
+			t = 'Type: Misc.'
+		break;
+	}
+
+
+	state.tooltip.show(game.input.x, game.input.y, data.name, t);
 }

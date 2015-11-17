@@ -78,44 +78,11 @@ var Equipment = function(state, x, y, bg) {
 		self.updateList(slot.name);
 	}
 
-	this.onInputOver = function() {
-		var data = this.listener.item.item;
-		var t = '';
-console.log(data.type);
-		switch (data.type) {
-			//equipment
-			case 'Helmet':
-			case 'Armor':
-			case 'Pants':
-			case 'Shoes':
-			case 'Gloves':
-			case 'Ring':
-			case 'Earing':
-			case 'Weapon': 
-			console.log('stats!');
-				var s = data.stats;
-				for(var key in s) {
-					t += key + ': ' + (Math.round((s[key] + 0.00001) * 100) / 100) + '\n';
-				}
-				if (t != '' || t[t.length-1]=='n' && t[t.length-2] == '\\') {
-					t = t.substring(0,  t.length - 1);
-				}
-			break;
-			case 1: //material
-				t = 'Type: Material'
-			break;
-			case 2: //item
-				t = 'Type: Misc.'
-			break;
-		}
 
-
-		state.tooltip.show(game.input.x, game.input.y, data.name, t);
-	}
 
 	var buttonGFX = cache.getBitmapData('inventoryListButton');
 	var itemList = this.itemList = group.addChild(new ScrollList(state, bg.width - buttonGFX.width, 
-		40, 0, this.onItemSelect, buttonGFX, undefined, undefined, this.onInputOver));
+		40, 0, this.onItemSelect, buttonGFX, undefined, undefined, Player.onItemInputOver));
 
 	this.panel.onSelectedChangedAdd(this.onEquipmentSelected, rb);
 }
