@@ -35,13 +35,6 @@ console.warn('Updating merc stats. No math is done.');
 		m.maxHealth = m.vitality;
 		m.health = m.maxHealth * h;
 		m.damage += m.strength;
-
-		/*m.maxHealth = 
-		m.damage = 
-		m.vitality = 
-		m.strength = 
-		m.dexterity = 
-		m.intelligence = */
 	}
 
 

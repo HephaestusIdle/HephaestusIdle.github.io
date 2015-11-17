@@ -18,7 +18,7 @@ function mercenaryFlushStats(state, merc) {
 	merc.name = chance.first();
 	
 	merc.health = merc.maxHealth = 1;
-	merc.equips = {};
+	merc.equipped = {};
 
 	merc.baseVitality = merc.vitality = 10;
 	merc.baseStrength = merc.strenght = 50;

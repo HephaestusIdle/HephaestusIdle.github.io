@@ -133,6 +133,7 @@ var gfx = cache.getBitmapData('inventoryUI');
 		};
 	},
 	onEquipmentClick:function(button, pointer) {
+		console.log(button.merc);
 		this.equipment.show(button.merc.details);
 	}, 
 	onSendToDungeonClick:function(button) {

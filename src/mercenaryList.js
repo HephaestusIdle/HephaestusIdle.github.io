@@ -25,7 +25,8 @@ function buildMercenaryList(state) {
 	
 	/* Hire button */
 	gfx = cache.getBitmapData('hireMercButton');
-	var hireMercButton = Button(state, 8,8,gfx, 'Hire Mercenary',TextStyles.simpleCenter,hireListToggle);
+	var hireMercButton = Button(state, 8, 8, gfx, 'Hire Mercenary', 
+		TextStyles.simpleCenter, hireListToggle);
 	upgradePanel.addChild(hireMercButton);
 	upgradePanel.hireMercButton = hireMercButton;
 
@@ -63,31 +64,30 @@ function addMercToList(state, mercs, mercData, index) {
 	var skillUI, btn;
 	var leftMost = 38;
 	/* BASE */
-	merc = mercs.addChild(state.game.add.group());
-	merc.position.setTo(0, (bg.height + 2) * index);
-	merc.bg = merc.addChild(state.game.add.image(0, 0, bg));
+	var mercGroup = mercs.addChild(state.game.add.group());
+	mercGroup.position.setTo(0, (bg.height + 2) * index);
+	mercGroup.bg = mercGroup.addChild(state.game.add.image(0, 0, bg));
 	/* DATA */
-	merc.avatar = merc.addChild(state.game.add.image(4, 4, mercData.avatar));
-	merc.name = merc.addChild(state.game.add.text(leftMost, 4, mercData.name, TextStyles.simple16));
-	merc.details = mercData;
-	console.info(mercData);
-	merc.stats = merc.addChild(state.game.add.text(leftMost, 22, 
+	mercGroup.avatar = mercGroup.addChild(state.game.add.image(4, 4, mercData.avatar));
+	mercGroup.name = mercGroup.addChild(state.game.add.text(leftMost, 4, mercData.name, TextStyles.simple16));
+	mercGroup.details = mercData;
+	mercGroup.stats = mercGroup.addChild(state.game.add.text(leftMost, 22, 
 		'Damage: ' + mercData.damage + '\nHealth: ' + mercData.maxHealth, TextStyles.simple12));
 	//merc.events.onInputDown.add(state.onmercClick, state);
 
 	/* SKILLS */
-	skillUI = merc.skillUI = merc.addChild(state.game.add.group());
-	skillUI.position.setTo(4, 38);
+	/*skillUI = mercGroup.skillUI = mercGroup.addChild(state.game.add.group());
+	skillUI.position.setTo(4, 38);*/
 
 	/* Equipment */
-	merc.equipBTN = merc.addChild(state.game.add.button(207, 38, cache.getBitmapData('mercEquipmentButton')));
-	merc.equipBTN.merc = merc;
-	merc.equipBTN.events.onInputDown.add(state.onEquipmentClick, state)
+	mercGroup.equipBTN = mercGroup.addChild(state.game.add.button(207, 38, cache.getBitmapData('mercEquipmentButton')));
+	mercGroup.equipBTN.merc = mercGroup;
+	mercGroup.equipBTN.events.onInputDown.add(state.onEquipmentClick, state)
 
 	/* Send To Dungeon */
-	merc.sendToDungeonBTN = merc.addChild(state.game.add.button(207, 18, cache.getBitmapData('mercSendToDungeonButton')));
-	merc.sendToDungeonBTN.merc = merc;
-	merc.sendToDungeonBTN.events.onInputDown.add(state.onSendToDungeonClick, state)
+	mercGroup.sendToDungeonBTN = mercGroup.addChild(state.game.add.button(207, 18, cache.getBitmapData('mercSendToDungeonButton')));
+	mercGroup.sendToDungeonBTN.merc = mercGroup;
+	mercGroup.sendToDungeonBTN.events.onInputDown.add(state.onSendToDungeonClick, state);
 }
 
 /* hire merc methods */
@@ -99,6 +99,8 @@ function hireListToggle(button) {
 			button.lastUpdate = Date.now();
 			var mercDetail = getMercDetailFromPool(state, list);
 			var merc;
+			console.log('hireListToggle');
+			console.log(mercDetail);
 			if (typeof mercDetail.merc === 'undefined') {
 				merc = mercenaryCreate(button.state);
 				mercDetail.merc = merc;
@@ -124,7 +126,7 @@ function hireListToggle(button) {
 
 function getMercDetailFromPool(state, list) {
 	
-	if (typeof state.mercDetailPool !== 'undefined') {
+	/*if (typeof state.mercDetailPool !== 'undefined') {
 		var merc;
 		for (i = 0; i < state.mercDetailPool.length; i++){
 			merc = state.mercDetailPool[i];
@@ -133,7 +135,7 @@ function getMercDetailFromPool(state, list) {
 				return merc;
 			}
 		}
-	}
+	}*/
 	// No available mercs in pool, creating new one
 
 	var cache = state.game.cache;
@@ -176,20 +178,23 @@ function getMercDetailFromPool(state, list) {
 function performHire(button) {
 	
 	var detail = button.detail;
-	
 	console.log('attempting to hire ' + detail.merc.name + ' Price not yet implemented');
 
 	addMercToList(button.state, button.state.ownedMercs, detail.merc, button.state.ownedMercs.length);
 	detail.visible = false;
 	var list = detail.list;
 	list.displayList.splice(list.displayList.indexOf(detail), 1);
-	
-	var pool = button.state.mercDetailPool;
+	console.log('CLEAR');
+	console.log(button.detail);
+	button.details = undefined;
+
+button.kill();
+	/*var pool = button.state.mercDetailPool;
 	if (typeof pool === 'undefined') {
 		button.state.mercDetailPool = [detail];
 	} else {
 		pool.push(detail);
-	}
+	}*/
 
 	
 }

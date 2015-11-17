@@ -72,6 +72,7 @@ var Equipment = function(state, x, y, bg) {
 		state.player.updateStats(self.activeMerc, self.equipped);
 		self.panel.selected.button.item = item;
 		self.updateList(item.type);
+		self.updateStats();
 	}
 
 
@@ -118,14 +119,26 @@ var Equipment = function(state, x, y, bg) {
 	}
 
 	this.show = function(merc) {
+		console.log('merc request ' + merc.name)
 		self.activeMerc = merc;
-		var e = self.equipped = merc.equips;
+		var e = self.equipped = merc.equipped;
 		self.updateStats();
 		this.group.visible = true;
 		console.warn('displaying equipment but not showing equips!');
 
-
-		
+		var i, r;
+		var rbl = this.panel.buttons;
+		var l = rbl.length - 1;
+		for (var k in e) {
+			for (i = l; i >= 0; i--) {
+				r = rbl[i];
+				r.item = undefined;
+				if (r.name == k) {
+					r.item = e[k];
+					break;
+				}
+			};
+		}
 	}
 
 
