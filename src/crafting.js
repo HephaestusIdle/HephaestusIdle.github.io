@@ -2,47 +2,47 @@ var craftingData = [
 	{	name: 'Sword',
 		item: [{
 				name: 'Copper Sword', gold: 5, 
-				material: [['Metal', 1]], forge:[['Metal', 1]], type:0,
+				material: [['Metal', 1]], forge:[['Metal', 1]], type:'Weapon',
 				stats: { Damage: 1, Strength: 1}
 			},
 			{
-				name: 'Iron Sword', damage: 1, gold: 5, material: [['Metal', 2], ['Iron', 1]], type:0
+				name: 'Iron Sword', damage: 1, gold: 5, material: [['Metal', 2], ['Iron', 1]], type:'Weapon'
 			},
 			{
-				name: 'Steel Sword', damage: 1, gold: 5, material: [['Metal', 1]], type:0
+				name: 'Steel Sword', damage: 1, gold: 5, material: [['Metal', 1]], type:'Weapon'
 			},
 			{
-				name: 'Mithril Sword', damage: 1, gold: 500, material: [['Metal', 1], ['Mithril', 1]], type:0
+				name: 'Mithril Sword', damage: 1, gold: 500, material: [['Metal', 1], ['Mithril', 1]], type:'Weapon'
 			},
 		]
 	}, 
 	{	name: 'Armor',
 		item: [{
-				name: 'Cooper Armor', damage: 1, gold: 5, material: [['Metal', 1]], type:0
+				name: 'Cooper Armor', damage: 1, gold: 5, material: [['Metal', 1]], type:'Armor'
 			}
 		]
 	}, 
 	{	name: 'Helmet',
 		item: [{
-				name: 'Cooper Helmet', damage: 1, gold: 5, material: [['Metal', 1]], type:0
+				name: 'Cooper Helmet', damage: 1, gold: 5, material: [['Metal', 1]], type:'Helmet'
 			}
 		]
 	}, 
 	{	name: 'Gloves',
 		item: [{
-				name: 'Cooper Gloves', damage: 1, gold: 5, material: [['Metal', 1]], type:0
+				name: 'Cooper Gloves', damage: 1, gold: 5, material: [['Metal', 1]], type:'Gloves'
 			}
 		]
 	}, 
 	{	name: 'Pants',
 		item: [{
-				name: 'Cooper Pants', damage: 1, gold: 5, material: [['Metal', 1]], type:0
+				name: 'Cooper Pants', damage: 1, gold: 5, material: [['Metal', 1]], type:'Pants'
 			}
 		]
 	}, 
 	{	name: 'Shoes',
 		item: [{
-				name: 'Cooper Shoes', damage: 1, gold: 5, material: [['Metal', 1]], type:0
+				name: 'Cooper Shoes', damage: 1, gold: 5, material: [['Metal', 1]], type:'Shoes'
 			}
 		]
 	}, 

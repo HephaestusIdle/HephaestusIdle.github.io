@@ -59,8 +59,10 @@ var Player = function(state) {
 		var container = this.crafts;
 		list.clear();
 		var h;
+		var data;
 		for (var key in container) {
-			h = {name: key + ' ' + container[key].quantity, item:container[key]};
+			data = container[key];
+			h = {name: key + ' ' + data.quantity, item:data};
 			list.addItem(h);
 		}
 	}
@@ -149,13 +151,20 @@ var Player = function(state) {
 			(self.selectedItem.forgeCost * self.forgeAmount);
 	}
 	this.onInputOver = function() {
-		var tt = this.tooltip;
 		var btn = this.listener;
 		var data = btn.item.item;
 		var t = '';
 
 		switch (data.type) {
-			case 0: //equipment
+			//equipment
+			case 'Helmet':
+			case 'Armor':
+			case 'Pants':
+			case 'Shoes':
+			case 'Gloves':
+			case 'Ring':
+			case 'Earing':
+			case 'Weapon': 
 				var s = data.stats;
 				for(var key in s) {
 					t += key + ': ' + (Math.round((s[key] + 0.00001) * 100) / 100) + '\n';
@@ -164,10 +173,10 @@ var Player = function(state) {
 					t = t.substring(0,  t.length - 1);
 				}
 			break;
-			case 1: //material
+			case 'Material': //material
 				t = 'Type: Material'
 			break;
-			case 2: //item
+			case 'Misc': //item
 				t = 'Type: Misc.'
 			break;
 		}
@@ -194,8 +203,8 @@ var Player = function(state) {
 
 		var buttonGFX = cache.getBitmapData('inventoryListButton');
 
-		ui.materialList = ui.addChild(ScrollList(state, 10, 40, 0, undefined, buttonGFX, undefined, undefined, this.onInputOver));
-		ui.itemList = ui.addChild(ScrollList(state, ui.itemsLabel.position.x - buttonGFX.width, 
+		ui.materialList = ui.addChild(new ScrollList(state, 10, 40, 0, undefined, buttonGFX, undefined, undefined, this.onInputOver));
+		ui.itemList = ui.addChild(new ScrollList(state, ui.itemsLabel.position.x - buttonGFX.width, 
 			40, 0, this.onItemSelect, buttonGFX, undefined, undefined, this.onInputOver));
 
 		ui.bottomText =ui.addChild(state.game.add.text(bg.width * 0.5, bg.height - 40, 

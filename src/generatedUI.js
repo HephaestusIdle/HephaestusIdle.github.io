@@ -110,6 +110,19 @@ rectUIData = [
 	{	name: 'tooltip', width: 1, height:1,
 		fillStyle: '#000', strokeStyle: '#000', lineWidth: 0,
 		fillRect: [0, 0, 1, 1], strokeRect: [0, 0, 1, 1]
+	},
+	/* equipment.js */
+	{	name: 'equipmentPanel', width: 250, height:500,
+		fillStyle: '#9a783d', strokeStyle: '#35371c', lineWidth: 12,
+		fillRect: [0, 0, 250, 500], strokeRect: [0, 0, 250, 500]
+	}, 
+	{	name: 'equipmentButtonBG', width: 28, height:28,
+		fillStyle: '#0f0', strokeStyle: '#000', lineWidth: 0,
+		fillRect: [0, 0, 28, 28], strokeRect: [0, 0, 0, 0]
+	},
+	{	name: 'equipmentButtonSelected', width: 28, height:28,
+		fillStyle: '#0e172a', strokeStyle: '#fff', lineWidth: 2,
+		fillRect: [0, 0, 0, 0], strokeRect: [0, 0, 28, 28]
 	}
 ];
 

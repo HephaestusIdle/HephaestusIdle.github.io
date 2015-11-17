@@ -83,8 +83,12 @@ var gfx = cache.getBitmapData('inventoryUI');
 			cache.getBitmapData('craftingPanel').width * -1 + 25, 25);
 		
 		
+		this.equipment = new Equipment(this, 300, 50, cache.getBitmapData('equipmentPanel'));
 
 
+		state.foremostGround = state.game.add.group();
+		console.log(state.tooltip);
+		state.foremostGround.addChild(state.tooltip.group);
 	},
 	onUpdate:function(){
 		var mercs = this.myMercs;
