@@ -34,6 +34,14 @@ var Equipment = function(state, x, y, bg) {
 
 	this.panel = new RadioButtonGroup(state, 8, 8);
 	group.addChild(this.panel.group);
+
+	this.equipped = {};
+
+	var eq;
+	for (var i = equipmentTypes.length - 1; i >= 0; i--) {
+		eq = equipmentTypes[i];
+		this.equipped[eq] = undefined;
+	};
 	
 	
 	var rb, data;
@@ -45,9 +53,25 @@ var Equipment = function(state, x, y, bg) {
 		rb = this[data.name] = this.panel.add(data.x, data.y, btnBG, btnSelected, data.name);
 		rb.button.addChild(state.game.add.image(
 			2, 2, cache.getBitmapData('equipment' + data.name)));
+		rb.listener = rb.button;
+		rb.button.state = state;
+		state.tooltip.addListener(rb.button, Player.onItemInputOver);
+		rb.button.name = 'rb';
 	}
 
-	
+	this.onItemSelect = function() {
+		//equip item!
+		var item = this.item.item;
+		var old = self.equipped[item.type];
+
+		if (old != undefined) {
+			state.player.addCraft(old, 1);
+		}
+		state.player.removeCraft(item, 1);
+		self.equipped[item.type] = item;
+		self.panel.selected.button.item = item;
+		self.updateList(item.type);
+	}
 
 
 	this.updateList = function(search) {
@@ -74,14 +98,13 @@ var Equipment = function(state, x, y, bg) {
 	}
 
 	this.onEquipmentSelected = function(slot) {
-		console.log(slot.name + ' was selected');
 		self.updateList(slot.name);
 	}
 
 
 
 	var buttonGFX = cache.getBitmapData('inventoryListButton');
-	var itemList = this.itemList = group.addChild(new ScrollList(state, bg.width - buttonGFX.width, 
+	var itemList = this.itemList = group.addChild(new ScrollList(state, bg.width - buttonGFX.width - 4, 
 		40, 0, this.onItemSelect, buttonGFX, undefined, undefined, Player.onItemInputOver));
 
 	this.panel.onSelectedChangedAdd(this.onEquipmentSelected, rb);

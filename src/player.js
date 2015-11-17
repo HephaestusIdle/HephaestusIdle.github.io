@@ -7,6 +7,9 @@ var Player = function(state) {
 	this.selectedItem = undefined;
 	this.forgeAmount = 1;
 	
+	this.updateStats = function() {
+		console.warn('I should update player stats!');
+	}
 
 	this.addCraft = function(craft, recalculateStats) {
 		if (this.crafts[craft.name] == undefined)
@@ -150,39 +153,6 @@ var Player = function(state) {
 		self.forgeButton.text.text = 'Forge ' + self.forgeAmount + ' $' +
 			(self.selectedItem.forgeCost * self.forgeAmount);
 	}
-	/*this.onInputOver = function() {
-		var data = this.listener.item.item;
-		var t = '';
-
-		switch (data.type) {
-			//equipment
-			case 'Helmet':
-			case 'Armor':
-			case 'Pants':
-			case 'Shoes':
-			case 'Gloves':
-			case 'Ring':
-			case 'Earing':
-			case 'Weapon': 
-				var s = data.stats;
-				for(var key in s) {
-					t += key + ': ' + (Math.round((s[key] + 0.00001) * 100) / 100) + '\n';
-				}
-				if (t != '' || t[t.length-1]=='n' && t[t.length-2] == '\\') {
-					t = t.substring(0,  t.length - 1);
-				}
-			break;
-			case 'Material': //material
-				t = 'Type: Material'
-			break;
-			case 'Misc': //item
-				t = 'Type: Misc.'
-			break;
-		}
-
-
-		state.tooltip.show(game.input.x, game.input.y, data.name, t);
-	}*/
 
 	this.inventoryUI = function(x, y, bg) {
 		var cache = state.game.cache;
@@ -240,8 +210,20 @@ var Player = function(state) {
 }
 
 Player.onItemInputOver = function() {
-	var data = this.listener.item.item;
-	var state = this.listener.state;
+	if (this.listener.item == undefined)
+		return;
+	var data, state;
+	if (this.listener.item.item == undefined) {
+		if (this.listener.item.type != undefined) {
+			data = this.listener.item;
+		}
+		else
+			return;
+	} else {
+		data = this.listener.item.item;
+	}
+	state = this.listener.state;
+
 	var t = '';
 	switch (data.type) {
 		//equipment

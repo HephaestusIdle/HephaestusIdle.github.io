@@ -74,6 +74,7 @@ game.state.add('play', {
 		});
 		
 		state.tooltip = new ToolTip(state);
+		state.tooltip.state = state;
 		
 var gfx = cache.getBitmapData('inventoryUI');
 		this.inventoryUI = this.player.inventoryUI(
@@ -87,7 +88,6 @@ var gfx = cache.getBitmapData('inventoryUI');
 
 
 		state.foremostGround = state.game.add.group();
-		console.log(state.tooltip);
 		state.foremostGround.addChild(state.tooltip.group);
 	},
 	onUpdate:function(){
