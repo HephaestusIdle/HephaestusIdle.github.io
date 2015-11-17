@@ -69,6 +69,7 @@ var Equipment = function(state, x, y, bg) {
 		}
 		state.player.removeCraft(item, 1);
 		self.equipped[item.type] = item;
+		state.player.updateStats(self.activeMerc, self.equipped);
 		self.panel.selected.button.item = item;
 		self.updateList(item.type);
 	}
@@ -101,6 +102,31 @@ var Equipment = function(state, x, y, bg) {
 		self.updateList(slot.name);
 	}
 
+	this.updateStats = function() {
+		if (self.activeMerc != undefined) {
+			var m = self.activeMerc;
+			sg.name.text = m.name;
+			sg.left.text = 
+				'Health: ' + m.maxHealth +
+				'\nDamage: ' + m.damage +
+				'\nVitality: ' + m.vitality +
+				'\nStrength: ' + m.strength +
+				'\nDexterity: ' + m.dexterity +
+				'\nIntelligence: ' + m.intelligence;
+			sg.right.text = 'Some\nStatistics\nWould\nBe\nNice';
+		}
+	}
+
+	this.show = function(merc) {
+		self.activeMerc = merc;
+		var e = self.equipped = merc.equips;
+		self.updateStats();
+		this.group.visible = true;
+		console.warn('displaying equipment but not showing equips!');
+
+
+		
+	}
 
 
 	var buttonGFX = cache.getBitmapData('inventoryListButton');
@@ -108,6 +134,20 @@ var Equipment = function(state, x, y, bg) {
 		40, 0, this.onItemSelect, buttonGFX, undefined, undefined, Player.onItemInputOver));
 
 	this.panel.onSelectedChangedAdd(this.onEquipmentSelected, rb);
+
+
+	var sg = this.statsGroup = group.addChild(state.game.add.group());
+	sg.position.setTo(10, 140);
+
+	var style = TextStyles.simple12;
+	var left, right, nameText;
+	sg.left = left = sg.addChild(state.game.add.text(0, 0, 'Stats: xx\nStats: xx\nStats: xx\n', style));
+	sg.right = right = sg.addChild(state.game.add.text(bg.width - 120, 0, 'Stats: xx\nStats: xx\nStats: xx\n', style));
+	sg.name = nameText = sg.addChild(state.game.add.text(167, -sg.position.y + 25, 'Ozymandias', TextStyles.titleMini));
+	sg.name.anchor.set(0.5);
+
+	this.group.visible = false;
+
 }
 
 

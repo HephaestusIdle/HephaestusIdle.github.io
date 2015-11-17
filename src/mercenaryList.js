@@ -70,6 +70,7 @@ function addMercToList(state, mercs, mercData, index) {
 	merc.avatar = merc.addChild(state.game.add.image(4, 4, mercData.avatar));
 	merc.name = merc.addChild(state.game.add.text(leftMost, 4, mercData.name, TextStyles.simple16));
 	merc.details = mercData;
+	console.info(mercData);
 	merc.stats = merc.addChild(state.game.add.text(leftMost, 22, 
 		'Damage: ' + mercData.damage + '\nHealth: ' + mercData.maxHealth, TextStyles.simple12));
 	//merc.events.onInputDown.add(state.onmercClick, state);

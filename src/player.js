@@ -7,9 +7,44 @@ var Player = function(state) {
 	this.selectedItem = undefined;
 	this.forgeAmount = 1;
 	
-	this.updateStats = function() {
-		console.warn('I should update player stats!');
+	this.updateStats = function(m, equips) {
+		if (m == undefined) {
+			console.error('No merc? Where you going buddy?');
+			return;
+		}
+	
+console.warn('Updating merc stats. No math is done.');
+		
+		m.vitality = m.baseVitality;
+		m.strength = m.baseStrength;
+		m.dexterity = m.baseDexterity
+		m.intelligence = m.baseIntelligence;
+		m.damage = 0;
+
+		var h;
+		if (equips != undefined) {
+			for (var key in equips) {
+				h = equips[key].stats;
+				for (var stat in h) {
+					m[stat] += h[stat]
+				}
+			}
+		}
+
+		h = m.health / m.maxHealth;
+		m.maxHealth = m.vitality;
+		m.health = m.maxHealth * h;
+		m.damage += m.strength;
+
+		/*m.maxHealth = 
+		m.damage = 
+		m.vitality = 
+		m.strength = 
+		m.dexterity = 
+		m.intelligence = */
 	}
+
+
 
 	this.addCraft = function(craft, recalculateStats) {
 		if (this.crafts[craft.name] == undefined)

@@ -133,7 +133,7 @@ var gfx = cache.getBitmapData('inventoryUI');
 		};
 	},
 	onEquipmentClick:function(button, pointer) {
-		console.log(button.merc.details.name + ' was equipment request! Not yet implemented. ' + pointer.name);
+		this.equipment.show(button.merc.details);
 	}, 
 	onSendToDungeonClick:function(button) {
 		var selector = this.dungeonSelector;

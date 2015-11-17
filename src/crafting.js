@@ -3,7 +3,7 @@ var craftingData = [
 		item: [{
 				name: 'Copper Sword', gold: 5, 
 				material: [['Metal', 1]], forge:[['Metal', 1]], type:'Weapon',
-				stats: { Damage: 1, Strength: 1}
+				stats: { damage: 1, strength: 1}
 			},
 			{
 				name: 'Iron Sword', damage: 1, gold: 5, material: [['Metal', 2], ['Iron', 1]], type:'Weapon'

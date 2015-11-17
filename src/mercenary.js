@@ -4,33 +4,28 @@ function mercenaryCreate(state, name, vitality, strenght, dexterity, intelligenc
 		mercenaryFlushStats(state, merc);
 	} else {
 		merc.name = name;
-		merc.vitality = vitality;
-		merc.strenght = strenght;
-		merc.dexterity = dexterity;
-		merc.intelligence = intelligence;
+		merc.baseVitality = merc.vitality = vitality;
+		merc.baseStrength = merc.strenght = strenght;
+		merc.baseDexterity = merc.dexterity = dexterity;
+		merc.baseIntelligence = merc.intelligence = intelligence;
 
-		mercenaryCalculate(merc);
+		state.player.updateStats(merc);
 	}
 	return merc;
 }
 
 function mercenaryFlushStats(state, merc) {
 	merc.name = chance.first();
+	
+	merc.health = merc.maxHealth = 1;
+	merc.equips = {};
 
-	merc.vitality = 10;
-	merc.strenght = 50;
-	merc.dexterity = 10;
-	merc.intelligence = 10;
+	merc.baseVitality = merc.vitality = 10;
+	merc.baseStrength = merc.strenght = 50;
+	merc.baseDexterity = merc.dexterity = 10;
+	merc.baseIntelligence = merc.intelligence = 10;
 	merc.avatar = state.game.cache.getBitmapData('hireMercAvatar');
 
-	mercenaryCalculate(merc);
+	state.player.updateStats(merc);
 	return merc;
-}
-
-function mercenaryCalculate(merc) {
-	merc.health = merc.maxHealth = merc.vitality;
-
-	merc.damage = merc.strenght;
-	console.warn('not yet implemented.' + merc.health + '_' + merc.vitality);
-
 }
