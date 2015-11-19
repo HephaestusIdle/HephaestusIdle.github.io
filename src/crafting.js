@@ -52,7 +52,8 @@ var craftingData = [
 var Crafting = function(state, x, y) {
 	var state = state;
 	var cache = state.game.cache;
-	var buttonGFX = cache.getBitmapData('dungeonGreenButton');
+	var buttonGFX = cache.getBitmapData('craftSkillButton');
+	var itemGFX = cache.getBitmapData('craftItemButton');
 	var bg = cache.getBitmapData('craftingPanel');
 	var craftGFX = cache.getBitmapData('craftButton');
 	var self = this;
@@ -116,7 +117,7 @@ var Crafting = function(state, x, y) {
 	}
 
 	var items = this.items = this.graphics.addChild(ScrollList(
-		state, 12 + buttonGFX.width, 40, 0, this.onItemSelect, buttonGFX));
+		state, 12 + buttonGFX.width, 40, 0, this.onItemSelect, itemGFX));
 	/* end of detailed item scrollList code */
 
 	/* left most scrollList code*/

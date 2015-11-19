@@ -1,20 +1,20 @@
 var monsterData = [
-    {name: 'Aerocephal',        image: 'aerocephal',        maxHealth: 100,	damage: 2},
-    {name: 'Arcana Drake',      image: 'arcana_drake',      maxHealth: 200,	damage: 2},
-    {name: 'Aurum Drakueli',    image: 'aurum-drakueli',    maxHealth: 300,	damage: 2},
-    {name: 'Bat',               image: 'bat',               maxHealth: 50,	damage: 2},
-    {name: 'Daemarbora',        image: 'daemarbora',        maxHealth: 100,	damage: 2},
-    {name: 'Deceleon',          image: 'deceleon',          maxHealth: 100,	damage: 2},
-    {name: 'Demonic Essence',   image: 'demonic_essence',   maxHealth: 150,	damage: 2},
-    {name: 'Dune Crawler',      image: 'dune_crawler',      maxHealth: 80,	damage: 2},
-    {name: 'Green Slime',       image: 'green_slime',       maxHealth: 30,	damage: 2},
-    {name: 'Nagaruda',          image: 'nagaruda',          maxHealth: 130,	damage: 2},
-    {name: 'Rat',               image: 'rat',               maxHealth: 20,	damage: 2},
-    {name: 'Scorpion',          image: 'scorpion',          maxHealth: 20,	damage: 2},
-    {name: 'Skeleton',          image: 'skeleton',          maxHealth: 60,	damage: 2},
-    {name: 'Snake',             image: 'snake',             maxHealth: 40,	damage: 2},
-    {name: 'Spider',            image: 'spider',            maxHealth: 40,	damage: 2},
-    {name: 'Stygian Lizard',    image: 'stygian_lizard',    maxHealth: 200,	damage: 2}
+    {name: 'Aerocephal',        image: 'aerocephal',        maxHealth: 100,	dmg: 2, dex: 5},
+    {name: 'Arcana Drake',      image: 'arcana_drake',      maxHealth: 200,	dmg: 2, dex: 5},
+    {name: 'Aurum Drakueli',    image: 'aurum-drakueli',    maxHealth: 300,	dmg: 2, dex: 5},
+    {name: 'Bat',               image: 'bat',               maxHealth: 50,	dmg: 2, dex: 5},
+    {name: 'Daemarbora',        image: 'daemarbora',        maxHealth: 100,	dmg: 2, dex: 5},
+    {name: 'Deceleon',          image: 'deceleon',          maxHealth: 100,	dmg: 2, dex: 5},
+    {name: 'Demonic Essence',   image: 'demonic_essence',   maxHealth: 150,	dmg: 2, dex: 5},
+    {name: 'Dune Crawler',      image: 'dune_crawler',      maxHealth: 80,	dmg: 2, dex: 5},
+    {name: 'Green Slime',       image: 'green_slime',       maxHealth: 30,	dmg: 2, dex: 5},
+    {name: 'Nagaruda',          image: 'nagaruda',          maxHealth: 130,	dmg: 2, dex: 5},
+    {name: 'Rat',               image: 'rat',               maxHealth: 20,	dmg: 2, dex: 5},
+    {name: 'Scorpion',          image: 'scorpion',          maxHealth: 20,	dmg: 2, dex: 5},
+    {name: 'Skeleton',          image: 'skeleton',          maxHealth: 60,	dmg: 2, dex: 5},
+    {name: 'Snake',             image: 'snake',             maxHealth: 40,	dmg: 2, dex: 5},
+    {name: 'Spider',            image: 'spider',            maxHealth: 40,	dmg: 2, dex: 5},
+    {name: 'Stygian Lizard',    image: 'stygian_lizard',    maxHealth: 200,	dmg: 2, dex: 5}
 ];
 
 

@@ -2,8 +2,8 @@
 * Send To Dungeon _done_
     - Fight through Dungeon _done_
     - Give loot to Hephaestus _done_
-* Craft Stuff
-* Equip Mercs with crafted stuff
+* Craft Stuff _done_
+* Equip Mercs with crafted stuff _done_
 
 
 

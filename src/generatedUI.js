@@ -63,7 +63,7 @@ rectUIData = [
 		fillRect: [0, 0, 136, 16], strokeRect: [0, 0, 136, 16]
 	},
 	{	name: 'dungeonGreenButton', width: 60, height:20,
-		fillStyle: '#458b00', strokeStyle: '#000', lineWidth: 2,
+		fillStyle: '#8b7d7b', strokeStyle: '#383a3f', lineWidth: 2,
 		fillRect: [0, 0, 60, 20], strokeRect: [0, 0, 60, 20]
 	},
 	/* dungeonSelector.js */
@@ -93,6 +93,14 @@ rectUIData = [
 		fillStyle: '#8b7d7b', strokeStyle: '#2d2d2d', lineWidth: 8,
 		fillRect: [0, 0, 130, 30], strokeRect: [-1, -1, 130, 30]
 	},
+	{	name: 'craftSkillButton', width: 60, height:20,
+		fillStyle: '#8b7d7b', strokeStyle: '#383a3f', lineWidth: 2,
+		fillRect: [0, 0, 60, 20], strokeRect: [0, 0, 60, 20]
+	},
+	{	name: 'craftItemButton', width: 100, height:20,
+		fillStyle: '#8b7d7b', strokeStyle: '#383a3f', lineWidth: 2,
+		fillRect: [0, 0, 100, 20], strokeRect: [0, 0, 100, 20]
+	},
 	/* inventory */
 	{	name: 'inventoryUI', width: 250, height:400,
 		fillStyle: '#9a783d', strokeStyle: '#35371c', lineWidth: 12,
@@ -116,9 +124,9 @@ rectUIData = [
 		fillRect: [0, 0, 1, 1], strokeRect: [0, 0, 1, 1]
 	},
 	/* equipment.js */
-	{	name: 'equipmentPanel', width: 250, height:500,
+	{	name: 'equipmentPanel', width: 250, height:300,
 		fillStyle: '#9a783d', strokeStyle: '#35371c', lineWidth: 12,
-		fillRect: [0, 0, 250, 500], strokeRect: [0, 0, 250, 500]
+		fillRect: [0, 0, 250, 300], strokeRect: [0, 0, 250, 300]
 	}, 
 	{	name: 'equipmentButtonBG', width: 28, height:28,
 		fillStyle: '#0f0', strokeStyle: '#000', lineWidth: 0,

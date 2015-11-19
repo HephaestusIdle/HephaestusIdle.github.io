@@ -77,15 +77,17 @@ loop1:
 	return m;
 }
 
+function Combat() {}
 
-dodgeTest = function(att, def) {
+
+Combat.dodgeTest = function(att, def) {
 	var accurate = att * 0.1;
 	var evasion = def * 0.035;
 	var chance = ((accurate - evasion)/accurate)*100;
 	if(chance < 0)
-	     return miss;
-	else if(random(100) > chance)
-	     return miss;
+	     return false;
+	else if(Math.random() * 100 > chance)
+	     return true;
 	else
-	     return hit;
+	     return false;
 }
