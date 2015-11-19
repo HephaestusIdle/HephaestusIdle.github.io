@@ -64,7 +64,7 @@ loop1:
 				m.currentZone = -2;
 			} else {	//dungeon completed!
 				//give reward
-				state.award(m.dungeon.data.completeReward);
+				state.award(m.dungeon.data.completeReward, m.dungeon.merc);
 				//reset dungeon
 				m.dungeon.level = 0;
 				m.currentZone = -2;
@@ -75,4 +75,17 @@ loop1:
 	}
 
 	return m;
+}
+
+
+dodgeTest = function(att, def) {
+	var accurate = att * 0.1;
+	var evasion = def * 0.035;
+	var chance = ((accurate - evasion)/accurate)*100;
+	if(chance < 0)
+	     return miss;
+	else if(random(100) > chance)
+	     return miss;
+	else
+	     return hit;
 }

@@ -54,24 +54,41 @@ var Crafting = function(state, x, y) {
 	var cache = state.game.cache;
 	var buttonGFX = cache.getBitmapData('dungeonGreenButton');
 	var bg = cache.getBitmapData('craftingPanel');
-	var craftGFX = cache.getBitmapData('hireMercButton');
+	var craftGFX = cache.getBitmapData('craftButton');
 	var self = this;
 
 	this.graphics = state.foreGround.addChild(state.game.add.image(x, y, bg));
 
 	this.details = this.graphics.addChild(state.game.add.group());
 	this.details.position.setTo(40 + buttonGFX.width * 2, 4);
-	this.title = this.details.addChild(state.game.add.text(160, 20, 'Crafting', TextStyles.titleSmall));
+	this.title = this.details.addChild(state.game.add.text(
+		-50, 20, 'Crafting', TextStyles.titleMini));
 	this.title.anchor.setTo(0.5);
 
-	this.stats = this.details.addChild(state.game.add.text(0, 45, 'Stats', TextStyles.simple12));
+	this.stats = this.details.addChild(state.game.add.text(
+		0, 45, 'Stats', TextStyles.simple12));
 	this.stats.lineSpacing = -8;
 
 	this.material = []; //required materials holder
 
 	this.craftBTN = this.graphics.addChild(Button(
-		state, bg.width * 0.5, bg.height - craftGFX.height - 10,
+		state, bg.width * 0.5 - 20, bg.height - craftGFX.height - 10,
 		craftGFX, 'Craft $', TextStyles.simpleCenter, this.doCraft));
+
+	this.onSlide = function(state, showing) {
+		if (showing) {
+			//force hide other windows
+			state.player.hide();
+			state.upgradePanel.hide();
+			//display stuff
+		} else {
+			//hide stuff
+		}
+	}
+
+	this.hide = function(state) {
+		self.showButton.slideOut();
+	}
 
 	/* detailed item scrollList code */
 	this.onItemSelect = function(button) {
@@ -80,33 +97,26 @@ var Crafting = function(state, x, y) {
 		var it = self.selectedItem = button.item;
 		//display selected item details
 		self.title.text = 'Crafting ' + it.name;
+		
+		var t = '';
+		var s = it.stats;
+		for (var key in s) {
+			t += key + ': ' + s[key] + '\n';
+		}
 
-		// item stats
-		self.stats.text = 'Damage: ' + it.damage;
-
-		//items materials
-		var m = self.material;
-		for (var i = m.length - 1; i >= 0; i--) {
-			//remove old materials
-			m[i].kill();
-		};
-		m.length = 0;
-		var matText;
+		t += '--------------\n';
+		
 		it.material.forEach(function(mat) {
-			matText = self.details.addChild(state.game.add.text(
-				bg.width - 170, 45 + 12 * m.length,
-				mat[0] + ': ' + mat[1] + '\n', TextStyles.simple12));
-			matText.lineSpacing = -8;
-			matText.anchor.x = 1;
-
-			m.push(matText);
+			t += mat[0] + ': ' + mat[1] + '\n';
 		});
+
+		self.stats.text = t;
 
 		self.craftBTN.text.text = 'Craft $' + it.gold;
 	}
 
 	var items = this.items = this.graphics.addChild(ScrollList(
-		state, 12 + buttonGFX.width, 4, 0, this.onItemSelect, buttonGFX));
+		state, 12 + buttonGFX.width, 40, 0, this.onItemSelect, buttonGFX));
 	/* end of detailed item scrollList code */
 
 	/* left most scrollList code*/
@@ -123,38 +133,36 @@ var Crafting = function(state, x, y) {
 	}
 
 	var skills = this.skills = this.graphics.addChild(ScrollList(
-		state, 4, 4, 0, this.onSkillClick, buttonGFX));
-	skills.position.setTo(4, 4);
+		state, 4, 40, 0, this.onSkillClick, buttonGFX));
 
 console.warn('remove item.item.forEach');
 	craftingData.forEach(function(item) {
-		item.item.forEach(function(d) {
+		/*item.item.forEach(function(d) {
 			d.quantity = 4;
 			state.player.addCraft(Crafting.getItem(d));	
-		})
+		})*/
 		
 		skills.addItem(item);
-	})
+	});
 
 	/*end of left most scrollList code*/
 
 	/* show me button */
 	var gfx = cache.getBitmapData('upgradePanelButton');
-	var showButton = this.graphics.addChild(SlideInOutButton(
+	this.showButton = this.graphics.addChild(SlideInOutButton(
 		state, bg.width - gfx.width * 0.3, 0, gfx, 'Crafting', 
 		TextStyles.simpleCenter, this.graphics, {x: x}, {x: -8}));
+	this.showButton.onSlideCallback = this.onSlide;
 }
 
 
 Crafting.prototype.doCraft = function() {
 	var it = this.state.crafting.selectedItem;
-	console.log('Doing a craft.... ');
 	if (it == undefined) {
 		return;
 	} else if (this.state.player.gold < it.gold) {
-		console.log('Not enough gold!');
+		this.state.showError('Not enough gold!');
 	} else {
-		console.log('Attempting to craft ' + it.name);
 
 		var inv = this.state.player.inventory;
 		var mats = it.material; //required material list
@@ -172,13 +180,18 @@ Crafting.prototype.doCraft = function() {
 	    }
 		if (canCraft) {
 			this.state.player.addGold(-it.gold);
+			//removing player materials
 			i = mats.length
-			console.log(inv);
 			while (i--) {
 		    	inv[m[0]] -= m[1];
 		    }	
 		    it.quantity = 1;
-			this.state.player.addCraft(it);
+		    var gi = Crafting.getItem(it);
+			this.state.player.addCraft(gi);
+			console.log(this.state.messageBox);
+			this.state.messageBox.add(gi.name + ' crafted!');
+		} else {
+			this.state.showError('Missing Materials!');
 		}
 	}
 }
@@ -189,6 +202,7 @@ Crafting.getItem = function(item) {
 		it[key] = item[key];
 	}
 	it.baseName = it.name;
+	console.log(it.baseName);
 	if (it.forgeLevel == undefined)
 		it.forgeLevel = 0;
 	Crafting.setforgeCost(it);
@@ -197,6 +211,8 @@ Crafting.getItem = function(item) {
 
 
 Crafting.cloneItem = function(item) {
+console.log('Cloning');
+	console.log(item);
 	var it = {};
 	for (var key in item) {
 		it[key] = item[key];

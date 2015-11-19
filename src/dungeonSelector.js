@@ -8,6 +8,8 @@ function buildDungeonSelector(state) {
 	state.game.world.bringToTop(selector);
 	selector.visible = false;
 
+	selector.close = new CloseMe(state, panel.width - 8, 8, selector);
+
 	selector.title = selector.addChild(state.game.add.text(
 		panel.width * 0.5, 25, 'Select Dungeon', TextStyles.title));
 	selector.title.anchor.set(0.5);
@@ -88,6 +90,9 @@ function onDungeonSelect(button) {
 }
 
 function onSendToDungeon(button) {
-	button.state.dungeonSelector.visible = false;
+	var d = button.state.dungeonSelector;
+	d.visible = false;
 	newDungeon(button.state);
+
+	button.state.messageBox.add(d.selectedMerc.name + ' sent to ' + d.selectedDungeon.name + '.');
 }

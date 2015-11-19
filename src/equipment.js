@@ -32,6 +32,8 @@ var Equipment = function(state, x, y, bg) {
 	var group = this.group = state.game.add.image(x, y, bg);
 	var self = this;
 
+	group.close = new CloseMe(state, bg.width - 8, 8, group);
+
 	this.panel = new RadioButtonGroup(state, 8, 8);
 	group.addChild(this.panel.group);
 
@@ -119,7 +121,10 @@ var Equipment = function(state, x, y, bg) {
 	}
 
 	this.show = function(merc) {
-		console.log('merc request ' + merc.name)
+		if (self.activeMerc == merc && self.group.visible) {
+			self.group.visible = false;
+			return;
+		}
 		self.activeMerc = merc;
 		var e = self.equipped = merc.equipped;
 		self.updateStats();
@@ -129,16 +134,17 @@ var Equipment = function(state, x, y, bg) {
 		var i, r;
 		var rbl = this.panel.buttons;
 		var l = rbl.length - 1;
-		for (var k in e) {
-			for (i = l; i >= 0; i--) {
-				r = rbl[i];
-				r.item = undefined;
+		for (i = l; i >= 0; i--) {
+			r = rbl[i];
+			r.button.item = undefined;
+			for (var k in e) {
 				if (r.name == k) {
-					r.item = e[k];
+					r.button.item = e[k];
 					break;
 				}
-			};
+			}
 		}
+		
 	}
 
 

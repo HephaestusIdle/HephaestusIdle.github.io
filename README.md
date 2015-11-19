@@ -28,7 +28,11 @@ Dungeon
     - Zone Clears in odd way, should be green on kill?
 * UI
     - SlideInOut/foreGround left side stuff requires rearranging on hide
+        + Create a SlideInOutManager
+        + also useful for dungeons controling
     - RadioGroupButton 1st button doesn't work
+* MercenaryList.js after time is up, open and closing window always changes the mercs
+
 
 
 

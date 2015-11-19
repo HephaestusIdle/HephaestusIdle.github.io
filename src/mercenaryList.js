@@ -8,6 +8,19 @@
         player.dps += 5;
     }}
 ];*/
+function onSlide(state, showing) {
+	if (state.upgradePanel.hireMercButton.list.visible) {
+		state.upgradePanel.hireMercButton.list.visible = false;
+	}
+	if (showing) {
+		//force hide other windows
+		state.player.hide(state);
+		state.crafting.hide(state);
+		//display stuff
+	} else {
+		//hide stuff
+	}
+}
 
 function buildMercenaryList(state) {
 
@@ -31,17 +44,15 @@ function buildMercenaryList(state) {
 	upgradePanel.hireMercButton = hireMercButton;
 
 	mercs.position.setTo(8, 12 + gfx.height);
-	
+
 	/* show me button */
 	gfx = cache.getBitmapData('upgradePanelButton');
 	var upgradePanelButton = upgradePanel.addChild(SlideInOutButton(
 		state, upgradePanel.width - gfx.width * 0.3, 0, gfx , 'Mercenary', 
 		TextStyles.simpleCenter, upgradePanel, {x: upgradePanel.position.x}, {x: -18}));
-	upgradePanelButton.events.onInputDown.add(function() {
-		if (this.hireMercButton.list.visible) {
-			this.hireMercButton.list.visible = false;
-		}
-	}, {hireMercButton});
+	upgradePanelButton.onSlideCallback = onSlide;
+	upgradePanelButton.hireMercButton = hireMercButton;
+	upgradePanelButton.panel = upgradePanel;
 
 	/* hire merc List */
 	gfx = cache.getBitmapData('hireMercListPanel');
@@ -53,7 +64,14 @@ function buildMercenaryList(state) {
 	hireMercList.title = hireMercList.addChild(state.game.add.text(gfx.width * 0.5, 25, 'Hire Mercenary', TextStyles.title));
 	hireMercList.title.anchor.set(0.5);
 
+	hireMercList.close = new CloseMe(state, gfx.width - 8, 8, hireMercList);
+
+	upgradePanel.hide = function() {
+		upgradePanelButton.slideOut();
+	}
 }
+
+
 
 function addMercToList(state, mercs, mercData, index) {
 	state.myMercs.push(mercData);
@@ -95,30 +113,41 @@ function hireListToggle(button) {
 	var list = button.list;
 	if (!list.visible) {
 		var state = button.state;
-		if (list.displayList.length == 0 || typeof button.lastUpdate === 'undefined' || Date.now() - button.lastUpdate > 60000) {
+		state.equipment.group.visible = false;
+		state.dungeonSelector.visible = false;
+		if (state.displayedDungeon != undefined) {
+			state.displayedDungeon.visible = false;
+			state.displayedDungeon = undefined;
+		}
+		var count = list.displayList.length;
+		if (count != 6 || typeof button.lastUpdate === 'undefined' || Date.now() - button.lastUpdate > 60000) {
 			button.lastUpdate = Date.now();
-			var mercDetail = getMercDetailFromPool(state, list);
-			var merc;
-			console.log('hireListToggle');
-			console.log(mercDetail);
-			if (typeof mercDetail.merc === 'undefined') {
-				merc = mercenaryCreate(button.state);
-				mercDetail.merc = merc;
-			} else {
-				merc = mercenaryFlushStats(button.state, mercDetail.merc);
-				mercDetail.visible = true;
+			for (var i = 6 - 1; i >= 0; i--) {
+				var mercDetail = getMercDetailFromPool(state, list);
+				
+				mercDetail.position.setTo((Math.ceil((i+1)/2)-1) * (15 + mercDetail.width) + 30,
+					(i % 2)?60:200);
+				var merc;
+				if (typeof mercDetail.merc === 'undefined') {
+					merc = mercenaryCreate(button.state);
+					mercDetail.merc = merc;
+				} else {
+					merc = mercenaryFlushStats(button.state, mercDetail.merc);
+					mercDetail.visible = true;
+				}
+				
+				list.displayList.push(mercDetail);
+
+				mercDetail.name.text = merc.name;
+				mercDetail.vitality.text = merc.vitality;
+				mercDetail.strenght.text = merc.strenght;
+				mercDetail.dexterity.text = merc.dexterity;
+				mercDetail.intelligence.text = merc.intelligence;
+
+				console.warn('missing avatar swap.');
+
+				updatePrice(mercDetail.hireBTN);
 			}
-			
-			list.displayList.push(mercDetail);
-
-			mercDetail.name.text = merc.name;
-			mercDetail.vitality.text = merc.vitality;
-			mercDetail.strenght.text = merc.strenght;
-			mercDetail.dexterity.text = merc.dexterity;
-			mercDetail.intelligence.text = merc.intelligence;
-
-			console.warn('missing avatar swap.');
-			
 		}
 	}
 	list.visible = !list.visible;
@@ -140,7 +169,7 @@ function getMercDetailFromPool(state, list) {
 
 	var cache = state.game.cache;
 	var mercDetailPanel = cache.getBitmapData('hireMercDetailPanel');
-	detail = list.addChild(state.game.add.image(15, 60, mercDetailPanel));
+	detail = list.addChild(state.game.add.image(0, 0, mercDetailPanel));
 	detail.list = list;
 	detail.avatar = detail.addChild(state.game.add.image(4, 4, cache.getBitmapData('hireMercAvatar')));
 
@@ -166,8 +195,10 @@ function getMercDetailFromPool(state, list) {
 	detail.hireBTN = detail.addChild(state.game.add.button(5, 104, 
 		gfx, performHire));
 	
+	
+
 	detail.hireBTN.text = detail.hireBTN.addChild(state.game.add.text(gfx.width * 0.5, gfx.height * 0.65,
-		'Hire Me!!!', TextStyles.simpleCenter));
+		'', TextStyles.simpleCenter));
 	detail.hireBTN.text.anchor.set(0.5);
 	detail.hireBTN.detail = detail;
 	detail.hireBTN.state = state;
@@ -175,20 +206,45 @@ function getMercDetailFromPool(state, list) {
 	return detail;
 }
 
+function calculateHiringCost(state, merc) {
+	var m = merc.baseVitality + merc.baseStrength + merc.baseDexterity + merc.baseIntelligence;
+	return Math.floor(10 * Math.pow(m * 0.18, state.myMercs.length));
+}
+
+function updatePrice(button) {
+	var buyCost = calculateHiringCost(button.state, button.detail.merc);
+	var btn = button.detail.hireBTN;
+	btn.cost = buyCost;
+	btn.text.text = 'Hire me! $' + buyCost;
+}
+
 function performHire(button) {
-	
+	var state = button.state;
+	if (state.player.gold < button.cost){
+		state.showError('Not enough gold!');
+		return;
+	}
+	state.player.addGold(-button.cost);
 	var detail = button.detail;
-	console.log('attempting to hire ' + detail.merc.name + ' Price not yet implemented');
 
 	addMercToList(button.state, button.state.ownedMercs, detail.merc, button.state.ownedMercs.length);
+	
+	button.state.messageBox.add(detail.merc.name + ' hired!');
+
 	detail.visible = false;
 	var list = detail.list;
 	list.displayList.splice(list.displayList.indexOf(detail), 1);
-	console.log('CLEAR');
-	console.log(button.detail);
 	button.details = undefined;
 
-button.kill();
+	button.kill();
+
+	var l = button.detail.list.displayList;
+	for (var i = l.length - 1; i >= 0; i--) {
+		updatePrice(l[i].hireBTN);
+	};
+
+
+
 	/*var pool = button.state.mercDetailPool;
 	if (typeof pool === 'undefined') {
 		button.state.mercDetailPool = [detail];

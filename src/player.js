@@ -3,7 +3,7 @@ var Player = function(state) {
 	var self = this;
 	this.inventory = {};
 	this.crafts = {};
-	this.gold = 25;
+	this.gold = 2500;
 	this.selectedItem = undefined;
 	this.forgeAmount = 1;
 	
@@ -13,7 +13,7 @@ var Player = function(state) {
 			return;
 		}
 	
-console.warn('Updating merc stats. No math is done.');
+	console.warn('Updating merc stats. Dexterity are currently useless.');
 		
 		m.vitality = m.baseVitality;
 		m.strength = m.baseStrength;
@@ -32,9 +32,10 @@ console.warn('Updating merc stats. No math is done.');
 		}
 
 		h = m.health / m.maxHealth;
-		m.maxHealth = m.vitality;
+		m.maxHealth = Math.floor(m.vitality * 2.1);
 		m.health = m.maxHealth * h;
-		m.damage += m.strength;
+		m.damage += Math.floor(m.strength * 1.12);
+		m.regen = Math.round(m.intelligence * 0.01 + 0.00001);
 	}
 
 
@@ -146,10 +147,10 @@ console.warn('Updating merc stats. No math is done.');
 	
 	this.doforge = function() {
 		if (self.gold < self.selectedItem.gold * self.forgeAmount) {
-			console.log('Not enough gold to forge item!');
+			this.state.showError('Not enough gold to forge item!');
 			self.forgeGroup.visible = false;
 		} else if (self.selectedItem.quantity < 2 * self.forgeAmount) {
-			console.log('Not enough items to forge item!');
+			this.state.showError('Not enough items to forge item!');
 			self.forgeGroup.visible = false;
 		} else {
 			self.addGold(-self.selectedItem.gold * self.forgeAmount);
@@ -160,6 +161,8 @@ console.warn('Updating merc stats. No math is done.');
 			e.name = c.baseName + ' +' + e.forgeLevel;
 			e.quantity = self.forgeAmount;
 			self.addCraft(e, true);
+
+			this.state.messageBox.add(self.forgeAmount + ' ' + e.name + ' forged.')
 
 			self.forgeGroup.visible = false;
 			self.forgeAmount = 1;
@@ -232,7 +235,25 @@ console.warn('Updating merc stats. No math is done.');
 			b.value = v;
 		}
 
+		this.onSlide = function(state, showing) {
+			if (showing) {
+				//force hide other windows
+				state.upgradePanel.hide();
+				state.crafting.hide();
+				//display stuff
+			} else {
+				//hide stuff
+			}
+		}
 
+		this.hide = function(b) {
+			this.ui.showButton.slideOut();
+		}
+		showButton.name = 'player';
+		showButton.onSlideCallback = this.onSlide;
+
+
+		
 		return ui;
 	}
 }

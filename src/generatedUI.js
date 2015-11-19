@@ -85,9 +85,13 @@ rectUIData = [
 		fillRect: [2, 2, 44, 28], strokeRect: [0, 0, 0, 0]
 	},
 	/* crafting.js*/
-	{	name: 'craftingPanel', width: 500, height:500,
+	{	name: 'craftingPanel', width: 250, height:500,
 		fillStyle: '#9a783d', strokeStyle: '#35371c', lineWidth: 12,
-		fillRect: [0, 0, 500, 500], strokeRect: [0, 0, 500, 500]
+		fillRect: [0, 0, 250, 500], strokeRect: [0, 0, 250, 500]
+	},
+	{	name: 'craftButton', width: 130, height:30,
+		fillStyle: '#8b7d7b', strokeStyle: '#2d2d2d', lineWidth: 8,
+		fillRect: [0, 0, 130, 30], strokeRect: [-1, -1, 130, 30]
 	},
 	/* inventory */
 	{	name: 'inventoryUI', width: 250, height:400,
@@ -123,6 +127,16 @@ rectUIData = [
 	{	name: 'equipmentButtonSelected', width: 28, height:28,
 		fillStyle: '#0e172a', strokeStyle: '#fff', lineWidth: 2,
 		fillRect: [0, 0, 0, 0], strokeRect: [0, 0, 28, 28]
+	},
+	/* MessageBox */
+	{	name: 'messageBox', width: 250, height:100,
+		fillStyle: '#9a783d', strokeStyle: '#35371c', lineWidth: 12,
+		fillRect: [0, 0, 250, 500], strokeRect: [0, 0, 250, 500]
+	},
+	/* CloseMe */
+	{	name: 'closeMe', width: 16, height:16,
+		fillStyle: '#f00', strokeStyle: '#f42', lineWidth: 8,
+		fillRect: [0, 0, 16, 16], strokeRect: [4, 4, 8, 8]
 	}
 ];
 

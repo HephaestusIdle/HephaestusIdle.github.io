@@ -20,8 +20,11 @@ function buildDungeon(state) {
 	var cache = state.game.cache;
 	var bmd = cache.getBitmapData('dungeonPanel');
 	var greenBTN = cache.getBitmapData('dungeonGreenButton');
-	var dungeon = /*state.dungeon =*/ state.game.add.image(state.game.width - bmd.width - 5, 5, bmd);
+	var dungeon = /*state.dungeon =*/ state.game.add.image(
+		state.game.width - bmd.width - 5, 5, bmd);
 	
+	dungeon.close = new CloseMe(state, bmd.width - 8, 8, dungeon);
+
 	//load player health bar
 	var playerStats = dungeon.playerStats = dungeon.addChild(state.game.add.group());
 	playerStats.position.setTo(10,5);
@@ -62,7 +65,8 @@ function buildDungeon(state) {
 				loot: m[1],
 				maxHealth: md.maxHealth, //should probably have formula for
 				health: md.maxHealth,	//higher level zones
-				damage: md.damage
+				damage: md.dmg,
+				dexterity: md.dex
 			};
 
 			var stats = dungeon.enemyStats;
@@ -90,13 +94,11 @@ function buildDisplayStats(state, group) {
 }
 
 function newDungeon(state) {
-	console.log('starting a new dungeon what happens to old one?');
-
 	var merc = state.dungeonSelector.selectedMerc;
 	
 	var dungeon = merc.activeDungeon = buildDungeon(state);
 	dungeon.data = state.dungeonSelector.selectedDungeon;
-	dungeon.levelUI.escape.merc = merc;
+	dungeon.merc = dungeon.levelUI.escape.merc = merc;
 	dungeon.levelUI.escape.dungeon = dungeon;
 
 	var stats = dungeon.playerStats;
@@ -105,6 +107,7 @@ function newDungeon(state) {
 	updateStats(stats, merc);
 
 	dungeon.map = new Map(state, dungeon);
+	state.displayedDungeon = dungeon;
 }
 
 function onDungeonEscape(button) {
