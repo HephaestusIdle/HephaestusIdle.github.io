@@ -19,6 +19,8 @@ game.state.add('play', {
 		
 		//load background
 		this.background = this.game.add.image(0,0, 'background');
+		this.gameTitle = this.background.addChild(this.game.add.text(
+			4, this.game.height - 40, 'Hephaestus Idle', TextStyles.title));
 		//setup each of our background layers to take the full screen
 		/*['background']
 			.forEach(function(image){
