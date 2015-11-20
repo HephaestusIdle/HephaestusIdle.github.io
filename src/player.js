@@ -3,7 +3,7 @@ var Player = function(state) {
 	var self = this;
 	this.inventory = {};
 	this.crafts = {};
-	this.gold = 2500;
+	this.gold = 25;
 	this.selectedItem = undefined;
 	this.forgeAmount = 1;
 	
