@@ -51,10 +51,14 @@ var Equipment = function(state, x, y, bg) {
 	var btnSelected = cache.getBitmapData('equipmentButtonSelected');
 
 	for (var i = 0; i < equipmentPanelData.length; i++) {
+
 		data = equipmentPanelData[i];
 		rb = this[data.name] = this.panel.add(data.x, data.y, btnBG, btnSelected, data.name);
-		rb.button.addChild(state.game.add.image(
-			2, 2, cache.getBitmapData('equipment' + data.name)));
+		rb.button.equipOff = rb.button.addChild(state.game.add.image(
+			2, 2, 'equipment' + data.name));
+		rb.button.equipOn = rb.button.addChild(state.game.add.image(
+			2, 2, 'equipmentOn' + data.name));
+		rb.button.equipOn.visible = false;
 		rb.listener = rb.button;
 		rb.button.state = state;
 		state.tooltip.addListener(rb.button, Player.onItemInputOver);
@@ -75,6 +79,8 @@ var Equipment = function(state, x, y, bg) {
 		self.panel.selected.button.item = item;
 		self.updateList(item.type);
 		self.updateStats();
+		self.panel.selected.button.equipOff.visible = false;
+		self.panel.selected.button.equipOn.visible = true;
 	}
 
 
@@ -129,17 +135,21 @@ var Equipment = function(state, x, y, bg) {
 		var e = self.equipped = merc.equipped;
 		self.updateStats();
 		this.group.visible = true;
-		console.warn('displaying equipment but not showing equips!');
 
-		var i, r;
+		var i, r, b;
 		var rbl = this.panel.buttons;
 		var l = rbl.length - 1;
 		for (i = l; i >= 0; i--) {
 			r = rbl[i];
-			r.button.item = undefined;
+			b = r.button;
+			b.item = undefined;
+			b.equipOff.visible = true;
+			b.equipOn.visible = false;
 			for (var k in e) {
 				if (r.name == k) {
-					r.button.item = e[k];
+					b.item = e[k];
+					b.equipOn.visible = true;
+					b.equipOff.visible = false;
 					break;
 				}
 			}
@@ -156,7 +166,7 @@ var Equipment = function(state, x, y, bg) {
 
 
 	var sg = this.statsGroup = group.addChild(state.game.add.group());
-	sg.position.setTo(10, 140);
+	sg.position.setTo(10, 145);
 
 	var style = TextStyles.simple12;
 	var left, right, nameText;

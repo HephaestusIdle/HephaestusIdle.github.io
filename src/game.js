@@ -18,14 +18,14 @@ game.state.add('play', {
 		this.onUpdateTimer = this.game.time.events.loop(1000, this.onUpdate, this);
 		
 		//load background
-		this.background = this.game.add.group();
+		this.background = this.game.add.image(0,0, 'background');
 		//setup each of our background layers to take the full screen
-		['forest-back', 'forest-lights', 'forest-middle', 'forest-front']
+		/*['background']
 			.forEach(function(image){
 				var bg = state.game.add.tileSprite(0,0, state.game.world.width,
 				state.game.world.height, image, '', state.background);
 				bg.tileScale.setTo(4,4);
-			});
+			});*/
 		this.dungeonGround = this.game.add.group();
 		this.foreGround = this.game.add.group();
 
@@ -138,23 +138,27 @@ game.state.add('play', {
 					} else {
 						enemy = dungeon.enemy;
 						//do battle
-						if (Combat.dodgeTest(merc.dexterity, enemy.dexterity)) {
+						//if (Combat.dodgeTest(merc.dexterity, enemy.dexterity)) {
+						//	this.messageBox.add(merc.name + ' damaged ' + ' ' + enemy.name);
 							enemy.health -= merc.damage;
 							updateStats(dungeon.enemyStats, enemy);
-						}
+						//} else
+						//	this.messageBox.add(enemy.name + ' dodged ' + merc.name + ' attack');
 						
 						if (enemy.health <= 0) {
 							enemy.health = 0;
 							this.award(enemy.loot, merc);
 						} else { //if enemy still alive, damage the player
-							if (Combat.dodgeTest(merc.dexterity, enemy.dexterity)) {
+						//	if (Combat.dodgeTest(merc.dexterity, enemy.dexterity)) {
+						//		this.messageBox.add(enemy.name + ' damaged ' + ' ' + merc.name);
 								merc.health -= enemy.damage;
 								if (merc.health <= 0) {
 									merc.health = 0;
 									merc.rest = 1;
 								}
 								updateStats(dungeon.playerStats, merc);
-							}
+						//	} else
+						//		this.messageBox.add(merc.name + ' dodged ' + enemy.name + ' attack');
 						}
 						
 					}

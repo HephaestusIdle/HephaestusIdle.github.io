@@ -1,20 +1,26 @@
+/* monster template
+	{name: '',		maxHealth: ,	dmg: , dex: },
+*/
+
 var monsterData = [
-    {name: 'Aerocephal',        image: 'aerocephal',        maxHealth: 100,	dmg: 2, dex: 5},
-    {name: 'Arcana Drake',      image: 'arcana_drake',      maxHealth: 200,	dmg: 2, dex: 5},
-    {name: 'Aurum Drakueli',    image: 'aurum-drakueli',    maxHealth: 300,	dmg: 2, dex: 5},
-    {name: 'Bat',               image: 'bat',               maxHealth: 50,	dmg: 2, dex: 5},
-    {name: 'Daemarbora',        image: 'daemarbora',        maxHealth: 100,	dmg: 2, dex: 5},
-    {name: 'Deceleon',          image: 'deceleon',          maxHealth: 100,	dmg: 2, dex: 5},
-    {name: 'Demonic Essence',   image: 'demonic_essence',   maxHealth: 150,	dmg: 2, dex: 5},
-    {name: 'Dune Crawler',      image: 'dune_crawler',      maxHealth: 80,	dmg: 2, dex: 5},
-    {name: 'Green Slime',       image: 'green_slime',       maxHealth: 30,	dmg: 2, dex: 5},
-    {name: 'Nagaruda',          image: 'nagaruda',          maxHealth: 130,	dmg: 2, dex: 5},
-    {name: 'Rat',               image: 'rat',               maxHealth: 20,	dmg: 2, dex: 5},
-    {name: 'Scorpion',          image: 'scorpion',          maxHealth: 20,	dmg: 2, dex: 5},
-    {name: 'Skeleton',          image: 'skeleton',          maxHealth: 60,	dmg: 2, dex: 5},
-    {name: 'Snake',             image: 'snake',             maxHealth: 40,	dmg: 2, dex: 5},
-    {name: 'Spider',            image: 'spider',            maxHealth: 40,	dmg: 2, dex: 5},
-    {name: 'Stygian Lizard',    image: 'stygian_lizard',    maxHealth: 200,	dmg: 2, dex: 5}
+    {name: 'Sleazy Hacker',			maxHealth: 20,	dmg: 5, dex: 2},
+    {name: 'Sloppy Racketeer',		maxHealth: 25,	dmg: 3, dex: 8},
+    {name: 'Counterfeiter',			maxHealth: 20,	dmg: 8, dex: 5},
+    {name: 'Hi-tech Robber',		maxHealth: 50,	dmg: 2, dex: 1},
+    {name: 'Android Husk',			maxHealth: 600,	dmg: 100, dex: 80},
+    {name: 'Mech',					maxHealth: 400,	dmg: 300, dex: 20},
+    {name: 'Cyborg',				maxHealth: 1200,	dmg: 200, dex: 160},
+    {name: 'Combat Engineer',		maxHealth: 6000,	dmg: 800, dex: 600},
+    {name: 'Mob',					maxHealth: 6000,	dmg: 800, dex: 600},
+    {name: 'Nanoborg',				maxHealth: 100000,	dmg: 9001, dex: 3000},
+    {name: 'Rick Deckard',			maxHealth: 100000,	dmg: 9001, dex: 3000},
+    {name: 'Al Mechapone',				maxHealth: 100000,	dmg: 9001, dex: 3000},
+    {name: 'Future Cop',				maxHealth: 100000,	dmg: 9001, dex: 3000},
+    {name: 'Spec Ops Soldier',				maxHealth: 100000,	dmg: 9001, dex: 3000},
+    {name: 'Spec Ops Shifter',				maxHealth: 100000,	dmg: 9001, dex: 3000},
+    {name: 'Tron',					maxHealth: 100000,	dmg: 9001, dex: 3000}
+
+
 ];
 
 

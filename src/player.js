@@ -13,7 +13,6 @@ var Player = function(state) {
 			return;
 		}
 	
-	console.warn('Updating merc stats. Dexterity are currently useless.');
 		
 		m.vitality = m.baseVitality;
 		m.strength = m.baseStrength;
@@ -36,6 +35,8 @@ var Player = function(state) {
 		m.health = m.maxHealth * h;
 		m.damage += Math.floor(m.strength * 1.12);
 		m.regen = Math.round(m.intelligence * 0.01 + 0.00001);
+		if (m.ui != undefined)
+			m.ui.update();
 	}
 
 
@@ -115,11 +116,13 @@ var Player = function(state) {
 		state.playerGoldText.text = 'Gold: ' + this.gold;
 	}
 
-	this.onItemSelect = function() {
+	this.onItemSelect = function(pointer) {
 		if (this.item.item.quantity > 1) {
 			self.selectedItem = this.item.item;
 			self.forgeGroup.visible = true;
-			self.forgeGroup.y = this.y + self.ui.itemList.y;
+			//self.forgeGroup.y = this.y + self.ui.itemList.y;
+			self.forgeGroup.position = self.ui.toLocal(pointer.position);
+//self.forgeGroup.position = this.
 			self.forgeAmount = 1;
 			self.forgeButton.text.text = 'Forge 1 $' + self.selectedItem.forgeCost;
 		} else {

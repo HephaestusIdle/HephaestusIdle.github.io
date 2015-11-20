@@ -1,19 +1,76 @@
 var dungeonList = [
-	{	name:'World', sizePerZone: 5, zoneCount: -1,
+	/*{	name:'World', sizePerZone: 5, zoneCount: -1,
 		monster: [
 			['Bat', []],
-			['Rat', ['Metal']]
+			['Rat', ['Copper']]
 		]
-	},
-	{	name:'Noob Area', sizePerZone: 1, zoneCount: 1,
+	},*/
+	{	name:'Hong Kong', sizePerZone: 5, zoneCount: 5,
 		monster: [
-			['Bat', []],
-			['Rat', ['Metal']]
+			['Sleazy Hacker', ['Copper']],
+			['Counterfeiter', ['Copper']],
+			['Sloppy Racketeer', ['Copper']]
 		],
 		completeReward: [
-			'Oriharukon'
+			'Tin'
+		]
+	},
+	{	name:'Akihabara', sizePerZone: 5, zoneCount: 5,
+		monster: [
+			['Hi-tech Robber', ['Tin', 'Copper']],
+			['Android Husk', ['Tin', 'Copper']],
+			['Mech', ['Copper', 'Tin']]
+		],
+		completeReward: [
+			'Iron'
+		]
+	},
+	{	name:'Los Angeles', sizePerZone: 5, zoneCount: 5,
+		monster: [
+			['Mech', ['Copper','Tin', 'Iron']],
+			['Cyborg', ['Tin', 'Iron']],
+			['Sloppy Racketeer', ['Copper']],
+			['Rick Deckard', ['Copper', 'Tin', 'Iron', 'Coal']]
+
+		],
+		completeReward: [
+			'Iron'
+		]
+	},
+	{	name:'Berlin', sizePerZone: 5, zoneCount: 5,
+		monster: [
+			['Mech', ['Tin']],
+			['Cyborg', ['Tin', 'Iron']],
+			['Tron', ['Tin', 'Iron', 'Coal']],
+			['Combat Engineer', ['Scraps', 'Tin', 'Iron', 'Coal']]
+		],
+		completeReward: [
+			'Coal'
+		]
+	},
+	{	name:'Detroit', sizePerZone: 5, zoneCount: 5,
+		monster: [
+			['Mech', ['Copper', 'Tin', 'Iron', 'Scraps']],
+			['Android', ['Iron', 'Scraps', 'Wire']],
+			['Combat Engineer', ['Scraps', 'Tin', 'Iron', 'Coal']],
+			['Al Mechapone', ['Scraps', 'Tin', 'Iron', 'Coal']],
+			['Future Cop', ['Scraps', 'Wire']]
+		],
+		completeReward: [
+			'Coal'
+		]
+	},
+	{	name:'Singapore', sizePerZone: 5, zoneCount: 5,
+		monster: [
+			['Spec Ops Soldier', ['Scraps', 'Wire']],
+			['Spec Ops Shifter', ['Scraps', 'Wire']],
+			
+		],
+		completeReward: [
+			'Coal'
 		]
 	}
+
 ]
 
 function buildDungeon(state) {
@@ -122,7 +179,7 @@ function onDungeonEscape(button) {
 
 
 function updateStats(stats, unit) {
-	stats.health.text = unit.health  + ' / ' + unit.maxHealth;
+	stats.health.text = Math.round(unit.health + 0.00001)  + ' / ' + unit.maxHealth;
 	var fg = stats.healthFG;
 
 	fg.scale.x = unit.health / unit.maxHealth;

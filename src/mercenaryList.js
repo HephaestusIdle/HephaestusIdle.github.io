@@ -90,22 +90,35 @@ function addMercToList(state, mercs, mercData, index) {
 	mercGroup.name = mercGroup.addChild(state.game.add.text(leftMost, 4, mercData.name, TextStyles.simple16));
 	mercGroup.details = mercData;
 	mercGroup.stats = mercGroup.addChild(state.game.add.text(leftMost, 22, 
-		'Damage: ' + mercData.damage + '\nHealth: ' + mercData.maxHealth, TextStyles.simple12));
+		'', TextStyles.simple12));
 	//merc.events.onInputDown.add(state.onmercClick, state);
 
 	/* SKILLS */
 	/*skillUI = mercGroup.skillUI = mercGroup.addChild(state.game.add.group());
 	skillUI.position.setTo(4, 38);*/
-
+	mercGroup.details.ui = mercGroup;
 	/* Equipment */
-	mercGroup.equipBTN = mercGroup.addChild(state.game.add.button(207, 38, cache.getBitmapData('mercEquipmentButton')));
+	mercGroup.equipBTN = mercGroup.addChild(state.game.add.button(
+		207, 38, cache.getBitmapData('mercEquipmentButton')));
+	mercGroup.equipBTN.addChild(state.game.add.image(
+		-1,3,'helmetIcon16')).angle = -15;
 	mercGroup.equipBTN.merc = mercGroup;
 	mercGroup.equipBTN.events.onInputDown.add(state.onEquipmentClick, state)
 
 	/* Send To Dungeon */
-	mercGroup.sendToDungeonBTN = mercGroup.addChild(state.game.add.button(207, 18, cache.getBitmapData('mercSendToDungeonButton')));
+	mercGroup.sendToDungeonBTN = mercGroup.addChild(state.game.add.button(
+		207, 18, cache.getBitmapData('mercSendToDungeonButton')));
+	mercGroup.sendToDungeonBTN.addChild(state.game.add.image(
+		-1,3,'gunIcon16')).angle = -15;
 	mercGroup.sendToDungeonBTN.merc = mercGroup;
 	mercGroup.sendToDungeonBTN.events.onInputDown.add(state.onSendToDungeonClick, state);
+
+
+	mercGroup.update = function() {
+		this.stats.text = 'Damage: ' + mercData.damage + '\nHealth: ' + mercData.maxHealth;
+	}
+
+	mercGroup.update();
 }
 
 /* hire merc methods */
@@ -140,7 +153,7 @@ function hireListToggle(button) {
 
 				mercDetail.name.text = merc.name;
 				mercDetail.vitality.text = merc.vitality;
-				mercDetail.strenght.text = merc.strenght;
+				mercDetail.strength.text = merc.strength;
 				mercDetail.dexterity.text = merc.dexterity;
 				mercDetail.intelligence.text = merc.intelligence;
 
@@ -176,18 +189,18 @@ function getMercDetailFromPool(state, list) {
 	detail.name = detail.addChild(state.game.add.text(78,18,'name', TextStyles.hireMercName));
 	detail.name.anchor.set(0.5);
 	detail.vitalityText = detail.addChild(state.game.add.text(4,36,'Vitality:', TextStyles.simple));
-	detail.strenghtText = detail.addChild(state.game.add.text(4,53,'Strenght:', TextStyles.simple));
+	detail.strengthText = detail.addChild(state.game.add.text(4,53,'Strength:', TextStyles.simple));
 	detail.dexterityText = detail.addChild(state.game.add.text(4,70,'Dexterity:', TextStyles.simple));
 	detail.intelligenceText = detail.addChild(state.game.add.text(4,87,'Intelligence:', TextStyles.simple));
 
 	var right = mercDetailPanel.width - 2;
 	detail.vitality = detail.addChild(state.game.add.text(right, 36,'xx', TextStyles.simpleRight));
-	detail.strenght = detail.addChild(state.game.add.text(right, 53,'xx', TextStyles.simpleRight));
+	detail.strength = detail.addChild(state.game.add.text(right, 53,'xx', TextStyles.simpleRight));
 	detail.dexterity = detail.addChild(state.game.add.text(right, 70,'xx', TextStyles.simpleRight));
 	detail.intelligence = detail.addChild(state.game.add.text(right, 87,'xx', TextStyles.simpleRight));
 
 	detail.vitality.anchor.x = 1;
-	detail.strenght.anchor.x = 1;
+	detail.strength.anchor.x = 1;
 	detail.dexterity.anchor.x = 1;
 	detail.intelligence.anchor.x = 1;
 

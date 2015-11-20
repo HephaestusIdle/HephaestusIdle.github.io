@@ -1,5 +1,4 @@
 var Map = function(state, dungeon) {
-	console.log('Creating map.');
 	var cache = state.game.cache;
 	var m = dungeon.addChild(state.game.add.group());
 	m.position.setTo(80, 70);

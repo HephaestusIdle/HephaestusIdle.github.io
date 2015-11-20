@@ -1,51 +1,178 @@
+/* crafting template
 var craftingData = [
-	{	name: 'Sword',
+	{	name: 'Sword', //craft skill
 		item: [{
 				name: 'Copper Sword', gold: 5, 
 				material: [['Metal', 1]], forge:[['Metal', 1]], type:'Weapon',
 				stats: { damage: 1, strength: 1}
+			}
+		]
+	}
+} */
+
+/*	An item type is limited to existing ones.
+		Helmet
+		Armor
+		Pants
+		Shoes
+		Gloves
+		Ring'
+		Earing
+		Weapon
+*/
+/*	Material reference (pls add new ones to list)
+		Copper
+		Tin
+		Bronze (Copper+Tin)
+		Iron
+		Steel (Copper+Tin)
+*/
+
+var craftingData = [
+	{	name: 'Rifle',
+		item: [
+			{	name: 'Copper Rifle', gold: 5,
+				material: [['Copper', 1]], forge:[['Copper', 1]], type:'Weapon',
+				stats: { damage: 1, strength: 1}
 			},
-			{
-				name: 'Iron Sword', damage: 1, gold: 5, material: [['Metal', 2], ['Iron', 1]], type:'Weapon'
+			{	name: 'Tin Rifle', gold: 15,
+				material: [['Tin', 1]], forge:[['Tin', 1]], type:'Weapon',
+				stats: { damage: 3, strength: 3}
 			},
-			{
-				name: 'Steel Sword', damage: 1, gold: 5, material: [['Metal', 1]], type:'Weapon'
+			{	name: 'Bronze Rifle', gold: 200,
+				material: [['Copper', 10], ['Tin', 10]], forge:[['Copper', 10], ['Tin', 10]], type:'Weapon',
+				stats: { damage: 5, strength: 5}
 			},
-			{
-				name: 'Mithril Sword', damage: 1, gold: 500, material: [['Metal', 1], ['Mithril', 1]], type:'Weapon'
+			{	name: 'Iron Rifle', gold: 900,
+				material: [['Iron', 3]], forge:[['Iron', 3]], type:'Weapon',
+				stats: { damage: 10, strength: 10}
 			},
+			{	name: 'Steel Rifle', gold: 5000,
+				material: [['Iron', 10], ['Tin', 50], ['Coal']], forge:[['Iron', 10], ['Tin', 30]], type:'Weapon',
+				stats: { damage: 30, strength: 30}
+			}
 		]
 	}, 
 	{	name: 'Armor',
-		item: [{
-				name: 'Cooper Armor', damage: 1, gold: 5, material: [['Metal', 1]], type:'Armor'
+		item: [
+			{	name: 'Copper Armor', gold: 5,
+				material: [['Copper', 1]], forge:[['Copper', 1]], type:'Armor',
+				stats: { strength: 1, vitality: 1}
+			},
+			{	name: 'Tin Armor', gold: 15,
+				material: [['Tin', 1]], forge:[['Tin', 1]], type:'Armor',
+				stats: { strength: 3, vitality: 3.5}
+			},
+			{	name: 'Bronze Armor', gold: 200,
+				material: [['Copper', 10], ['Tin', 10]], forge:[['Copper', 10], ['Tin', 10]], type:'Armor',
+				stats: { strength: 5, vitality: 7}
+			},
+			{	name: 'Iron Armor', gold: 900,
+				material: [['Iron', 3]], forge:[['Iron', 3]], type:'Armor',
+				stats: { strength: 15, vitality: 21}
+			},
+			{	name: 'Steel Armor', gold: 5000,
+				material: [['Iron', 10], ['Tin', 50], ['Coal']], forge:[['Iron', 10], ['Tin', 30]], type:'Armor',
+				stats: { strength: 35, vitality: 41}
 			}
 		]
 	}, 
 	{	name: 'Helmet',
-		item: [{
-				name: 'Cooper Helmet', damage: 1, gold: 5, material: [['Metal', 1]], type:'Helmet'
+		item: [
+			{	name: 'Copper Helmet', gold: 5,
+				material: [['Copper', 1]], forge:[['Copper', 1]], type:'Helmet',
+				stats: { intelligence: 1	}
+			},
+			{	name: 'Tin Helmet', gold: 15,
+				material: [['Tin', 1]], forge:[['Tin', 1]], type:'Helmet',
+				stats: { intelligence: 3}
+			},
+			{	name: 'Bronze Helmet', gold: 200,
+				material: [['Copper', 10], ['Tin', 10]], forge:[['Copper', 10], ['Tin', 10]], type:'Helmet',
+				stats: { intelligence: 5	}
+			},
+			{	name: 'Iron Helmet', gold: 900,
+				material: [['Iron', 3]], forge:[['Iron', 3]], type:'Helmet',
+				stats: { intelligence: 	13	}
+			},
+			{	name: 'Steel Helmet', gold: 5000,
+				material: [['Iron', 10], ['Tin', 50], ['Coal']], forge:[['Iron', 10], ['Tin', 30]], type:'Helmet',
+				stats: { intelligence: 	30	}
 			}
 		]
 	}, 
 	{	name: 'Gloves',
-		item: [{
-				name: 'Cooper Gloves', damage: 1, gold: 5, material: [['Metal', 1]], type:'Gloves'
+		item: [
+			{	name: 'Copper Gloves', gold: 5,
+				material: [['Copper', 1]], forge:[['Copper', 1]], type:'Gloves',
+				stats: { damage: 0.25, dexterity: 1, vitality: 1}
+			},
+			{	name: 'Tin Gloves', gold: 15,
+				material: [['Tin', 1]], forge:[['Tin', 1]], type:'Gloves',
+				stats: { damage: 1, dexterity: 2, vitality: 2}
+			},
+			{	name: 'Bronze Gloves', gold: 200,
+				material: [['Copper', 10], ['Tin', 10]], forge:[['Copper', 10], ['Tin', 10]], type:'Gloves',
+				stats: { damage: 2.1, dexterity: 4, vitality: 4}
+			},
+			{	name: 'Iron Gloves', gold: 900,
+				material: [['Iron', 3]], forge:[['Iron', 3]], type:'Gloves',
+				stats: { damage: 4.6, strength: 7, vitality: 7}
+			},
+			{	name: 'Steel Gloves', gold: 5000,
+				material: [['Iron', 10], ['Tin', 50], ['Coal']], forge:[['Iron', 10], ['Tin', 30]], type:'Gloves',
+				stats: { damage: 7, dexterity: 16, vitality: 16}
 			}
 		]
 	}, 
 	{	name: 'Pants',
-		item: [{
-				name: 'Cooper Pants', damage: 1, gold: 5, material: [['Metal', 1]], type:'Pants'
+		item: [
+			{	name: 'Copper Pants', gold: 5,
+				material: [['Copper', 1]], forge:[['Copper', 1]], type:'Pants',
+				stats: { vitality: 3}
+			},
+			{	name: 'Tin Pants', gold: 15,
+				material: [['Tin', 1]], forge:[['Tin', 1]], type:'Pants',
+				stats: { vitality: 7}
+			},
+			{	name: 'Bronze Pants', gold: 200,
+				material: [['Copper', 10], ['Tin', 10]], forge:[['Copper', 10], ['Tin', 10]], type:'Pants',
+				stats: { vitality: 15}
+			},
+			{	name: 'Iron Pants', gold: 900,
+				material: [['Iron', 3]], forge:[['Iron', 3]], type:'Pants',
+				stats: { vitality: 31}
+			},
+			{	name: 'Steel Pants', gold: 5000,
+				material: [['Iron', 10], ['Tin', 50], ['Coal']], forge:[['Iron', 10], ['Tin', 30]], type:'Pants',
+				stats: { vitality: 62}
 			}
 		]
 	}, 
 	{	name: 'Shoes',
-		item: [{
-				name: 'Cooper Shoes', damage: 1, gold: 5, material: [['Metal', 1]], type:'Shoes'
+		item: [
+			{	name: 'Copper Shoes', gold: 5,
+				material: [['Copper', 1]], forge:[['Copper', 1]], type:'Shoes',
+				stats: { dexterity: 1}
+			},
+			{	name: 'Tin Shoes', gold: 15,
+				material: [['Tin', 1]], forge:[['Tin', 1]], type:'Shoes',
+				stats: { dexterity: 3}
+			},
+			{	name: 'Bronze Shoes', gold: 200,
+				material: [['Copper', 10], ['Tin', 10]], forge:[['Copper', 10], ['Tin', 10]], type:'Shoes',
+				stats: { dexterity: 6}
+			},
+			{	name: 'Iron Shoes', gold: 900,
+				material: [['Iron', 3]], forge:[['Iron', 3]], type:'Shoes',
+				stats: { dexterity: 12}
+			},
+			{	name: 'Steel Shoes', gold: 5000,
+				material: [['Iron', 10], ['Tin', 50], ['Coal']], forge:[['Iron', 10], ['Tin', 30]], type:'Shoes',
+				stats: { dexterity: 24}
 			}
 		]
-	}, 
+	} 
 
 ]
 
@@ -61,20 +188,20 @@ var Crafting = function(state, x, y) {
 	this.graphics = state.foreGround.addChild(state.game.add.image(x, y, bg));
 
 	this.details = this.graphics.addChild(state.game.add.group());
-	this.details.position.setTo(40 + buttonGFX.width * 2, 4);
+	this.details.position.setTo(15 + buttonGFX.width + itemGFX.width, 0);
 	this.title = this.details.addChild(state.game.add.text(
 		-50, 20, 'Crafting', TextStyles.titleMini));
 	this.title.anchor.setTo(0.5);
 
 	this.stats = this.details.addChild(state.game.add.text(
-		0, 45, 'Stats', TextStyles.simple12));
+		0, 38, 'Stats', TextStyles.cyberpunk));
 	this.stats.lineSpacing = -8;
 
 	this.material = []; //required materials holder
 
 	this.craftBTN = this.graphics.addChild(Button(
 		state, bg.width * 0.5 - 20, bg.height - craftGFX.height - 10,
-		craftGFX, 'Craft $', TextStyles.simpleCenter, this.doCraft));
+		craftGFX, 'Craft $', TextStyles.cyberpunkCenterButton, this.doCraft));
 
 	this.onSlide = function(state, showing) {
 		if (showing) {
@@ -189,7 +316,6 @@ Crafting.prototype.doCraft = function() {
 		    it.quantity = 1;
 		    var gi = Crafting.getItem(it);
 			this.state.player.addCraft(gi);
-			console.log(this.state.messageBox);
 			this.state.messageBox.add(gi.name + ' crafted!');
 		} else {
 			this.state.showError('Missing Materials!');
@@ -203,7 +329,6 @@ Crafting.getItem = function(item) {
 		it[key] = item[key];
 	}
 	it.baseName = it.name;
-	console.log(it.baseName);
 	if (it.forgeLevel == undefined)
 		it.forgeLevel = 0;
 	Crafting.setforgeCost(it);
@@ -212,8 +337,6 @@ Crafting.getItem = function(item) {
 
 
 Crafting.cloneItem = function(item) {
-console.log('Cloning');
-	console.log(item);
 	var it = {};
 	for (var key in item) {
 		it[key] = item[key];
